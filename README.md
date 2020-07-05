@@ -75,7 +75,7 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 ✍️ Slides y Código
 ------------------------------------------------------------
 
-Tanto la [presentación](https://github.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/blob/master/material/PRESENTACION_WIDS2020.pdf) como los [archivos rmarkdown](https://github.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/blob/master/material) se encuentran en la carpeta **Material**.
+Tanto la [presentación]() como los [archivos rmarkdown]() se encuentran en la carpeta **Material**.
 
 📓 **Bibliografía**
 -------------------------------------------------------------------------------------------------------------------
@@ -86,13 +86,14 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - [Tutoriales de Tidymodels](https://www.tidymodels.org/learn/)
 
--   [Introduction to ML con Tidymodels](https://conf20-intro-ml.netlify.app/) de [Allison Hill](https://github.com/rstudio-conf-2020/intro-to-ml-tidy/commits?author=apreshill) en la rstudio::conf 2020
+- [Introduction to ML con Tidymodels](https://conf20-intro-ml.netlify.app/) de [Allison Hill](https://github.com/rstudio-conf-2020/intro-to-ml-tidy/commits?author=apreshill) en la rstudio::conf 2020
 
 - [Tutoriales de Max Kuhn en la rstudio::conf 2017-2020- Repositorio](https://github.com/topepo/rstudio-conf)
 
-- [Canal de Youtubel de Julia Silge](https://www.youtube.com/channel/UCTTBgWyJl2HrrhQOOc710kA) y el [código](https://juliasilge.com/) 
-    
-- [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 23: Modelos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 24: Modelos](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html).
+- [Canal de Youtubel de Julia Silge](https://www.youtube.com/channel/UCTTBgWyJl2HrrhQOOc710kA) y el [código](https://juliasilge.com/) en su blog personal  
+
+- [Three reasons to use Tidymodels](https://t.co/1HqiujvEDn?amp=1) por Julia Silge en Youtube
+
     
 
 **Material Extra**
