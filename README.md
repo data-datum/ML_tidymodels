@@ -96,11 +96,11 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
     
 
-**Material Extra**
+:books: Material Extra
 ============================================================
 
-- [Max Kuhn. Feature Engineering](http://www.feat.engineering/)
+- Max Kuhn & Johnson Kjell. [Feature Engineering](http://www.feat.engineering/)
 
-- [Max Kuhn. Applied Predictive Modeling](https://link.springer.com/book/10.1007/978-1-4614-6849-3)
+- Max Kuhn & Johnson Kjell.  [Applied Predictive Modeling](https://link.springer.com/book/10.1007/978-1-4614-6849-3)
 
 
