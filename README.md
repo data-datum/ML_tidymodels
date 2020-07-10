@@ -42,9 +42,9 @@ Los estudiantes aprenderan a entrenar, supervisar y generar predicciones con mod
 
 Gracias por inscribirte a este workshop, en el mismo trabajaremos con una versión reciente de R y Rstudio, por lo que, para aprovecharlo deberás traer una pc portátil con lo siguiente instalado:
 
-Instalación de R and RStudio
+Instalación de R and RStudio 
 
--   Una versión reciente de **R (>=3.6.3)** disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/).
+-   Una versión reciente de **R (>=4.0.2)** disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/).
     
 -   Una versión reciente de **Rstudio Desktop (>= 1.3.959)** disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download).
     
@@ -67,11 +67,7 @@ Para poder instalar de manera exitosa los paquetes, es necesario que estés cone
 Para verificar que los paquetes se cargaron correctamente, por favor ejecutá las sentencias que están a continuación:
 
 ```r
-easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
-                        "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
-                        "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
-                        "RColorBrewer", "ggtext","ggthemes","hrbrthemes","plotly","highcharter","GGally",
-                        "sf","maps", "mapdata","mapproj","rnaturalearth","devtools")
+easypackages::libraries("tidyverse", "tidymodels","devtools", "kknn", "rpart", "rpart.plot", "rattle", "AmesHousing", "ranger", "partykit", "vip")
 
 ```
 ✍️ Slides y Código
