@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Instalación de R y Rstudio | Introducción a Machine Learning con Tidymodels</title>
+    <link>/entorno/</link>
+      <atom:link href="/entorno/index.xml" rel="self" type="application/rss+xml" />
+    <description>Instalación de R y Rstudio</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/img/imagen-congreso.jpeg</url>
+      <title>Instalación de R y Rstudio</title>
+      <link>/entorno/</link>
+    </image>
+    
+    <item>
+      <title>Instalación de programas y librerías</title>
+      <link>/entorno/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/entorno/</guid>
+      <description>
+
+
+&lt;p&gt;Gracias por inscribirte a este workshop, en el mismo trabajaremos con una versión reciente de R y Rstudio, por lo que, para aprovecharlo deberás tener una PC con lo siguiente instalado:&lt;/p&gt;
+&lt;p&gt;Instalación de R and RStudio&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Una versión reciente de R (&amp;gt;=3.6.3) disponible de manera gratuita para su descarga en CRAN.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Una versión reciente de Rstudio Desktop (&amp;gt;= 1.3.959) disponible de manera gratuita para su descarga en Rstudio.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la versión del mismo (32 o 64 bits) para descargar la versión correcta tanto de R como de Rstudio.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mis_paquetes &amp;lt;- c(&amp;quot;tidyverse&amp;quot;, &amp;quot;tidymodels&amp;quot;,&amp;quot;devtools&amp;quot;, &amp;quot;kknn&amp;quot;, &amp;quot;rpart&amp;quot;, &amp;quot;rpart.plot&amp;quot;, &amp;quot;rattle&amp;quot;, &amp;quot;AmesHousing&amp;quot;, &amp;quot;ranger&amp;quot;, &amp;quot;partykit&amp;quot;, &amp;quot;vip&amp;quot;)
+
+install.packages(mis_paquetes, repos = &amp;quot;http://cran.rstudio.com&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para poder instalar de manera exitosa los paquetes, es necesario que estés conectado a Internet.&lt;/p&gt;
+&lt;p&gt;¿Cómo verifico que los paquetes se instalaron correctamente?&lt;/p&gt;
+&lt;p&gt;Para verificar que los paquetes se cargaron correctamente, por favor ejecutá las sentencias que están a continuación:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;easypackages::libraries(&amp;quot;tidyverse&amp;quot;, &amp;quot;gapminder&amp;quot;,&amp;quot;babynames&amp;quot;,&amp;quot;survey&amp;quot;,&amp;quot;socviz&amp;quot;,&amp;quot;here&amp;quot;,&amp;quot;cowplot&amp;quot;, 
+                        &amp;quot;patchwork&amp;quot;, &amp;quot;ggrepel&amp;quot;,&amp;quot;ggridges&amp;quot;,&amp;quot;ggforce&amp;quot;, &amp;quot;gridExtra&amp;quot;,&amp;quot;extrafont&amp;quot;,
+                        &amp;quot;scales&amp;quot;,&amp;quot;wesanderson&amp;quot;,&amp;quot;viridis&amp;quot;, &amp;quot;viridisLite&amp;quot;,&amp;quot;prismatic&amp;quot;,&amp;quot;fishualize&amp;quot;,
+                        &amp;quot;RColorBrewer&amp;quot;, &amp;quot;ggtext&amp;quot;,&amp;quot;ggthemes&amp;quot;,&amp;quot;hrbrthemes&amp;quot;,&amp;quot;plotly&amp;quot;,&amp;quot;highcharter&amp;quot;,&amp;quot;GGally&amp;quot;,
+                        &amp;quot;sf&amp;quot;,&amp;quot;maps&amp;quot;, &amp;quot;mapdata&amp;quot;,&amp;quot;mapproj&amp;quot;,&amp;quot;rnaturalearth&amp;quot;,&amp;quot;devtools&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,35 +3,33 @@
 #     desired widget in your `content/home/` folder.
 #   The weight parameter defines the order that the links will appear in.
 
+
 [[main]]
-  name = "Demo"
-  url = "#hero"
+  name = "Entorno"
+  url = "entorno"
   weight = 10
 
 [[main]]
-  name = "Posts"
-  url = "#posts"
+  name = "Material"
+  url = "material"
   weight = 20
 
 [[main]]
-  name = "Projects"
-  url = "#projects"
+  name = "Referencias"
+  url = "referencias"
   weight = 30
 
 [[main]]
-  name = "Publications"
-  url = "#featured"
-  weight = 40
-
-[[main]]
-  name = "Courses"
-  url = "courses/"
+  name = "Contacto"
+  url = "contacto"
   weight = 50
 
 [[main]]
-  name = "Contact"
-  url = "#contact"
+  pre = "<i class=\"fab fa-github fa-lg\"></i>"
+  name = ""
+  url = "https://github.com/data-datum/ML_tidymodels"
   weight = 60
+
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.

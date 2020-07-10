@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Roxana Noelia Villafañe | Introducción a Machine Learning con Tidymodels</title>
+    <link>/author/roxana-noelia-villafane/</link>
+      <atom:link href="/author/roxana-noelia-villafane/index.xml" rel="self" type="application/rss+xml" />
+    <description>Roxana Noelia Villafañe</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/img/imagen-congreso.jpeg</url>
+      <title>Roxana Noelia Villafañe</title>
+      <link>/author/roxana-noelia-villafane/</link>
+    </image>
+    
+  </channel>
+</rss>
