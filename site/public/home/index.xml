@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes | Introducción a Machine Learning con Tidymodels</title>
+    <link>/home/</link>
+      <atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
+    <description>Homes</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/img/imagen-congreso.jpeg</url>
+      <title>Homes</title>
+      <link>/home/</link>
+    </image>
+    
+    <item>
+      <title>Introducción a Machine Learning con Tidymodels</title>
+      <link>/home/hero/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/home/hero/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Bienvenidx al Workshop&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Repositorio en 
+&lt;a href=&#34;https://github.com/data-datum/ML_tidymodels&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Website del 
+&lt;a href=&#34;https://womenbioinfodatascla.github.io/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Congreso&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meet the Team</title>
+      <link>/home/people/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/home/people/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

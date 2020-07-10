@@ -26,7 +26,7 @@ hero_media = "imagen-congreso.jpeg"
   # Background image.
   # image = ""  # Name of image in `static/img/`.
   # image_darken = 0.6  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
-  # image_size = "cover"  #  Options are `cover` (default), `contain`, or `actual` size.
+  # image_size = "cover"  #  Options are `cover` (default), `contain`, or  `actual` size.
   # image_position = "center"  # Options include `left`, `center` (default), or `right`.
   # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
   
@@ -44,9 +44,7 @@ hero_media = "imagen-congreso.jpeg"
   
 
 # Note. An optional note to show underneath the links.
-[cta_note]
-  label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
-+++
+
 
 **Bienvenidx al Workshop**
 
