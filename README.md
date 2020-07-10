@@ -38,11 +38,11 @@ Los estudiantes aprenderan a entrenar, supervisar y generar predicciones con mod
 💻 Antes del workshop
 ------------------------------------------------------------
 
-Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versión más reciente de R y Rstudio, por lo que, para aprovecharlo deberás traer una pc portátil con lo siguiente instalado:
+Gracias por inscribirte a este workshop, en el mismo trabajaremos con una versión reciente de R y Rstudio, por lo que, para aprovecharlo deberás traer una pc portátil con lo siguiente instalado:
 
 Instalación de R and RStudio
 
--   Una versión reciente de **R (>=3.6.4)** disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/).
+-   Una versión reciente de **R (>=3.6.3)** disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/).
     
 -   Una versión reciente de **Rstudio Desktop (>= 1.3.959)** disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download).
     
@@ -99,8 +99,8 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 :books: Material Extra
 ============================================================
 
-- Max Kuhn & Johnson Kjell. [Feature Engineering](http://www.feat.engineering/)
+- Max Kuhn & Kjell Johnson. [Feature Engineering](http://www.feat.engineering/)
 
-- Max Kuhn & Johnson Kjell.  [Applied Predictive Modeling](https://link.springer.com/book/10.1007/978-1-4614-6849-3)
+- Max Kuhn & Kjell Johnson.  [Applied Predictive Modeling](https://link.springer.com/book/10.1007/978-1-4614-6849-3)
 
 
