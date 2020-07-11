@@ -1,5 +1,3 @@
- [![Netlify Status](https://api.netlify.com/api/v1/badges/17d086f4-e161-4439-b09a-cf9e7ba24cc2/deploy-status)](https://app.netlify.com/sites/roxananoelia/deploys)
-
 # Introducción a machine learning con Tidymodels
 
 
@@ -10,8 +8,9 @@ Fecha y Lugar
 -------------
 
 🗓️ Jueves 24 de septiembre del 2020  
-⏰ Horario a definir  
-🏨 Online
+⏰ Horario a definir (por la Tarde)  
+:robot: https://ml-tidy-wibds.netlify.app/  
+
 
 🌎 [Primer Congreso de Mujeres en Bionformática y Ciencia de Datos en Latinoamérica](https://womenbioinfodatascla.github.io/index.html)
 
@@ -26,7 +25,7 @@ Nos centraremos en aprender a entrenar y evaluar modelos modelos de machine lear
 # ¿Este curso es para mí?
 
 1.  Tienes conocimientos básicos del lenguaje R y la IDE de Rstudio.
-2.   Quieres aprender especificamente sobre modelado de datos utilizando el conjunto de paquetes comprendidos en Tidymodels.
+2.  Quieres aprender especificamente sobre modelado de datos utilizando el conjunto de paquetes comprendidos en Tidymodels.
 3.  Tienes conocimientos básicos de ggplot2.
 4.  Tienes un manejo básico de tidyverse.
 5.  Quieres conocer cuáles son los modelos más comúnmente utilizados y cómo implementarlos con tidymodels.
@@ -40,11 +39,11 @@ Los estudiantes aprenderan a entrenar, supervisar y generar predicciones con mod
 💻 Antes del workshop
 ------------------------------------------------------------
 
-Gracias por inscribirte a este workshop, en el mismo trabajaremos con una versión reciente de R y Rstudio, por lo que, para aprovecharlo deberás traer una pc portátil con lo siguiente instalado:
+Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versión más reciente de R y Rstudio, por lo que, para aprovecharlo deberás traer una pc portátil con lo siguiente instalado:
 
 Instalación de R and RStudio
 
--   Una versión reciente de **R (>=3.6.3)** disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/).
+-   Una versión reciente de **R (>=3.6.4)** disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/).
     
 -   Una versión reciente de **Rstudio Desktop (>= 1.3.959)** disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download).
     
@@ -101,8 +100,8 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 :books: Material Extra
 ============================================================
 
-- Max Kuhn & Kjell Johnson. [Feature Engineering](http://www.feat.engineering/)
+- Max Kuhn & Johnson Kjell. [Feature Engineering](http://www.feat.engineering/)
 
-- Max Kuhn & Kjell Johnson.  [Applied Predictive Modeling](https://link.springer.com/book/10.1007/978-1-4614-6849-3)
+- Max Kuhn & Johnson Kjell.  [Applied Predictive Modeling](https://link.springer.com/book/10.1007/978-1-4614-6849-3)
 
 
