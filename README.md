@@ -9,7 +9,7 @@ Fecha y Lugar
 
 🗓️ Jueves 24 de septiembre del 2020  
 ⏰ Horario a definir (por la Tarde)  
-:robot_face: https://ml-tidy-wibds.netlify.app/  
+:robot: https://ml-tidy-wibds.netlify.app/  
 
 
 🌎 [Primer Congreso de Mujeres en Bionformática y Ciencia de Datos en Latinoamérica](https://womenbioinfodatascla.github.io/index.html)
