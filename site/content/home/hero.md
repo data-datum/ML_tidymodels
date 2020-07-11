@@ -45,6 +45,7 @@ hero_media = "imagen-congreso.jpeg"
 
 # Note. An optional note to show underneath the links.
 
++++
 
 **Bienvenidx al Workshop**
 
