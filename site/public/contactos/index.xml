@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Contactos | Introducción a Machine Learning con Tidymodels</title>
+    <link>/contactos/</link>
+      <atom:link href="/contactos/index.xml" rel="self" type="application/rss+xml" />
+    <description>Contactos</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/imagen-congreso.jpeg</url>
+      <title>Contactos</title>
+      <link>/contactos/</link>
+    </image>
+    
+  </channel>
+</rss>

@@ -39,7 +39,6 @@ social:
 superuser: true
 title: Roxana Noelia Villafañe
 user_groups:
-- Researchers
-- Visitors
+- Instructoras
 ---
 
