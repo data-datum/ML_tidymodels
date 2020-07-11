@@ -20,7 +20,7 @@ hero_media = "imagen-congreso.jpeg"
   color = "darkorchid"
   
   # Background gradient.
-  gradient_start = "#4bb4e3"
+  gradient_start = "#634680"
   gradient_end = "#2b94c3"
   
   # Background image.
@@ -44,7 +44,7 @@ hero_media = "imagen-congreso.jpeg"
   
 
 # Note. An optional note to show underneath the links.
-
+    
 +++
 
 **Bienvenidx al Workshop**

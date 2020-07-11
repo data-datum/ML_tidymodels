@@ -13,7 +13,7 @@
 #   Latest themes (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
-theme = "ocean"
+theme = "wibds"
 
 # Enable users to switch between day and night mode?
 day_night = false
@@ -124,10 +124,10 @@ contact_links = [
 ############################
 
 # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
-sharing_image = "img/imagen-congreso.jpeg"
+sharing_image = "imagen-congreso.jpeg"
 
 # Twitter username (without @). Used when a visitor shares your site on Twitter.
-twitter = ""
+twitter = "data-datum"
 
 ############################
 ## Regional Settings
