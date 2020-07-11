@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>desiree | Introducción a Machine Learning con Tidymodels</title>
+    <link>/author/desiree/</link>
+      <atom:link href="/author/desiree/index.xml" rel="self" type="application/rss+xml" />
+    <description>desiree</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/imagen-congreso.jpeg</url>
+      <title>desiree</title>
+      <link>/author/desiree/</link>
+    </image>
+    
+  </channel>
+</rss>

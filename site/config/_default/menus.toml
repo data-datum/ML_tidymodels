@@ -20,8 +20,8 @@
   weight = 30
 
 [[main]]
-  name = "Contactos"
-  url = "contactos"
+  name = "Contacto"
+  url = "people"
   weight = 50
 
 [[main]]

@@ -28,6 +28,11 @@
   </url>
   
   <url>
+    <loc>/people/</loc>
+    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/privacy/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
   </url>
@@ -38,15 +43,15 @@
   </url>
   
   <url>
+    <loc>/author/</loc>
+  </url>
+  
+  <url>
     <loc>/authors/</loc>
   </url>
   
   <url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/contactos/</loc>
   </url>
   
   <url>
@@ -59,14 +64,6 @@
   
   <url>
     <loc>/referencias/</loc>
-  </url>
-  
-  <url>
-    <loc>/author/roxana-noelia-villafane/</loc>
-  </url>
-  
-  <url>
-    <loc>/contactos/admin/</loc>
   </url>
   
   <url>

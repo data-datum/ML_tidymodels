@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gwynn | Introducción a Machine Learning con Tidymodels</title>
+    <link>/author/gwynn/</link>
+      <atom:link href="/author/gwynn/index.xml" rel="self" type="application/rss+xml" />
+    <description>gwynn</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/imagen-congreso.jpeg</url>
+      <title>gwynn</title>
+      <link>/author/gwynn/</link>
+    </image>
+    
+  </channel>
+</rss>
