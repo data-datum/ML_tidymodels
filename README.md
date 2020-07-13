@@ -67,11 +67,7 @@ Para poder instalar de manera exitosa los paquetes, es necesario que estés cone
 Para verificar que los paquetes se cargaron correctamente, por favor ejecutá las sentencias que están a continuación:
 
 ```r
-easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
-                        "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
-                        "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
-                        "RColorBrewer", "ggtext","ggthemes","hrbrthemes","plotly","highcharter","GGally",
-                        "sf","maps", "mapdata","mapproj","rnaturalearth","devtools")
+easypackages::libraries("tidyverse", "tidymodels","devtools", "kknn", "rpart", "rpart.plot", "rattle", "AmesHousing", "ranger", "partykit", "vip")
 
 ```
 ✍️ Slides y Código
