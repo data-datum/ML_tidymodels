@@ -95,7 +95,7 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - [Three reasons to use Tidymodels](https://t.co/1HqiujvEDn?amp=1) por Julia Silge en Youtube
 
-- [Tidymodels noRth Conferencce](https://github.com/llendway/2020_north_tidymodels)
+- [Tidymodels noRth Conference](https://github.com/llendway/2020_north_tidymodels)
 
     
 
