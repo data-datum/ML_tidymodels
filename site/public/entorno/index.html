@@ -27,7 +27,7 @@
   
     
   
-  <meta name="description" content="Postdoc Researcher">
+  <meta name="description" content="Lista de instalación">
 
   
   <link rel="alternate" hreflang="en-us" href="/entorno/">
@@ -216,8 +216,6 @@
   
 
   
-  <link rel="alternate" href="/entorno/index.xml" type="application/rss+xml" title="Introducción a Machine Learning con Tidymodels">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
@@ -242,28 +240,33 @@
   
   <meta property="og:site_name" content="Introducción a Machine Learning con Tidymodels">
   <meta property="og:url" content="/entorno/">
-  <meta property="og:title" content="Instalación de R y Rstudio | Introducción a Machine Learning con Tidymodels">
-  <meta property="og:description" content="Postdoc Researcher"><meta property="og:image" content="/img/imagen-congreso.jpeg">
+  <meta property="og:title" content="Instalación de programas y librerías | Introducción a Machine Learning con Tidymodels">
+  <meta property="og:description" content="Lista de instalación"><meta property="og:image" content="/img/imagen-congreso.jpeg">
   <meta property="twitter:image" content="/img/imagen-congreso.jpeg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-01T00:00:00&#43;00:00">
+    
+      <meta property="article:published_time" content="2020-01-01T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-01-01T00:00:00&#43;00:00">
   
 
   
 
 
 
-
   
 
 
   
 
 
+  
 
 
 
-  <title>Instalación de R y Rstudio | Introducción a Machine Learning con Tidymodels</title>
+
+
+  <title>Instalación de programas y librerías | Introducción a Machine Learning con Tidymodels</title>
 
 </head>
 <body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
@@ -475,70 +478,333 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>Instalación de programas y librerías</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Instalación de R y Rstudio</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 1, 2020
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
-  <div class="article-style"><p>Gracias por inscribirte a este workshop, en el mismo trabajaremos con una versión reciente de R y Rstudio, por lo que, para aprovecharlo deberás tener una PC con lo siguiente instalado:</p>
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>Gracias por inscribirte a este workshop, en el mismo trabajaremos con una versión reciente de R y Rstudio, por lo que, para aprovecharlo deberás tener una PC con lo siguiente instalado:</p>
+<p>Instalación de R and RStudio</p>
 <ul>
-<li>
-<p>Una versión reciente de R (&gt;=3.6.3) disponible de manera gratuita para su descarga en CRAN.</p>
-</li>
-<li>
-<p>Una versión reciente de Rstudio Desktop (&gt;= 1.3.959) disponible de manera gratuita para su descarga en Rstudio.</p>
-</li>
+<li><p>Una versión reciente de R (&gt;=3.6.3) disponible de manera gratuita para su descarga en CRAN.</p></li>
+<li><p>Una versión reciente de Rstudio Desktop (&gt;= 1.3.959) disponible de manera gratuita para su descarga en Rstudio.</p></li>
 </ul>
 <p>En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la versión del mismo (32 o 64 bits) para descargar la versión correcta tanto de R como de Rstudio.</p>
 <ul>
 <li>Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:</li>
 </ul>
-<pre><code class="language-{r">mis_paquetes &lt;- c(&quot;tidyverse&quot;, &quot;tidymodels&quot;,&quot;devtools&quot;, &quot;kknn&quot;, &quot;rpart&quot;, &quot;rpart.plot&quot;, &quot;rattle&quot;, &quot;AmesHousing&quot;, &quot;ranger&quot;, &quot;partykit&quot;, &quot;vip&quot;)
+<pre class="r"><code>mis_paquetes &lt;- c(&quot;tidyverse&quot;, &quot;tidymodels&quot;,&quot;devtools&quot;, &quot;kknn&quot;, &quot;rpart&quot;, &quot;rpart.plot&quot;, &quot;rattle&quot;, &quot;AmesHousing&quot;, &quot;ranger&quot;, &quot;partykit&quot;, &quot;vip&quot;)
 
-install.packages(mis_paquetes, repos = &quot;http://cran.rstudio.com&quot;)
-</code></pre>
+install.packages(mis_paquetes, repos = &quot;http://cran.rstudio.com&quot;)</code></pre>
 <p>Para poder instalar de manera exitosa los paquetes, es necesario que estés conectado a Internet.</p>
 <p>¿Cómo verifico que los paquetes se instalaron correctamente?</p>
 <p>Para verificar que los paquetes se cargaron correctamente, por favor ejecutá las sentencias que están a continuación:</p>
-<pre><code class="language-{r">easypackages::libraries(&quot;tidyverse&quot;, &quot;gapminder&quot;,&quot;babynames&quot;,&quot;survey&quot;,&quot;socviz&quot;,&quot;here&quot;,&quot;cowplot&quot;, 
+<pre class="r"><code>easypackages::libraries(&quot;tidyverse&quot;, &quot;gapminder&quot;,&quot;babynames&quot;,&quot;survey&quot;,&quot;socviz&quot;,&quot;here&quot;,&quot;cowplot&quot;, 
                         &quot;patchwork&quot;, &quot;ggrepel&quot;,&quot;ggridges&quot;,&quot;ggforce&quot;, &quot;gridExtra&quot;,&quot;extrafont&quot;,
                         &quot;scales&quot;,&quot;wesanderson&quot;,&quot;viridis&quot;, &quot;viridisLite&quot;,&quot;prismatic&quot;,&quot;fishualize&quot;,
                         &quot;RColorBrewer&quot;, &quot;ggtext&quot;,&quot;ggthemes&quot;,&quot;hrbrthemes&quot;,&quot;plotly&quot;,&quot;highcharter&quot;,&quot;GGally&quot;,
-                        &quot;sf&quot;,&quot;maps&quot;, &quot;mapdata&quot;,&quot;mapproj&quot;,&quot;rnaturalearth&quot;,&quot;devtools&quot;)
-</code></pre>
-</div>
-  
-  <ul class="list-unstyled">
+                        &quot;sf&quot;,&quot;maps&quot;, &quot;mapdata&quot;,&quot;mapproj&quot;,&quot;rnaturalearth&quot;,&quot;devtools&quot;)</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/entorno/&amp;text=Instalaci%c3%b3n%20de%20programas%20y%20librer%c3%adas" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/entorno/&amp;t=Instalaci%c3%b3n%20de%20programas%20y%20librer%c3%adas" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Instalaci%c3%b3n%20de%20programas%20y%20librer%c3%adas&amp;body=/entorno/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/entorno/&amp;title=Instalaci%c3%b3n%20de%20programas%20y%20librer%c3%adas" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Instalaci%c3%b3n%20de%20programas%20y%20librer%c3%adas%20/entorno/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/entorno/&amp;title=Instalaci%c3%b3n%20de%20programas%20y%20librer%c3%adas" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/avatar_hude66574147532ca014d6835a1aa3b06f_409831_270x270_fill_q90_lanczos_center.jpeg" alt="">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/"></a></h5>
+        <h6 class="card-subtitle">Postdoc Researcher</h6>
+        
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/data_datum" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/data-datum" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://orcid.org/0000-0002-1760-4703" target="_blank" rel="noopener">
+        <i class="ai ai-orcid"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=KQvNGicAAAAJ&amp;hl=es" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
 
       
 
