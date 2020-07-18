@@ -116,4 +116,4 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - [CME 106 - Introduction to Probability and Statistics for Engineers](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability)
 
-
+- [CS 221 Artificial intelligence](https://stanford.edu/~shervine/teaching/cs-221/)
