@@ -110,4 +110,5 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - [Probability Cheatsheets](https://github.com/wzchen/probability_cheatsheet)
 
+- [CS 229 Machine Learning Stanford Cheatsheet](https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-supervised-learning)
 
