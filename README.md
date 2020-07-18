@@ -112,3 +112,8 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - [CS 229 Machine Learning Stanford Cheatsheet](https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-supervised-learning)
 
+- [CS 230 Deep Learning Stanford Cheatsheet](https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks)
+
+- [CME 106 - Introduction to Probability and Statistics for Engineers](https://stanford.edu/~shervine/teaching/cme-106/cheatsheet-probability)
+
+
