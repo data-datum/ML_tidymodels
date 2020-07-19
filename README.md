@@ -97,6 +97,10 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - [Tidymodels noRth Conference](https://github.com/llendway/2020_north_tidymodels)
 
+- [Machine Learning with R, tidyverse, and mlr](https://www.manning.com/books/machine-learning-with-r-the-tidyverse-and-mlr)
+
+- [Hands on Machine Learning with R](https://bradleyboehmke.github.io/HOML/)
+
     
 
 :books: Material Extra
