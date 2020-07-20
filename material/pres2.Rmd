@@ -67,6 +67,10 @@ library(emo)
 
 ---
 
+
+
+
+---
 <img src="img/tidymodels.png" width="10%" align="right" />
 
 

@@ -1,0 +1,64 @@
+---
+title: "Presentation Ninja"
+subtitle: "&#x2694;&#xFE0F; xaringan +<br/>&#x1F60E; xaringanthemer"  
+author: 
+  - "Yihui Xie"
+  - "Garrick Aden-Buie"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#6c5396",
+  secondary_color = "#534173",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r}
+
+```
+
+
+---
+
+
+# ¿Qué es el aprendizaje automático? 
+
+
+---
+
+# Aprendizaje automático e IA 
+
+
+
+---
+
+# El aprendizaje automático y otros campos relacionados
+
+---
+
+# IA y Ética
+
+
+---
+
+# El aprendizaje automático y ciencia de datos
+
+
+---
+
+    
