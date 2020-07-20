@@ -110,6 +110,8 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - Max Kuhn & Johnson Kjell.  [Applied Predictive Modeling](https://link.springer.com/book/10.1007/978-1-4614-6849-3)
 
+- [Rstudio + Tensorflow Tutorials](https://tensorflow.rstudio.com/tutorials/) 
+
 - [Data Science Cheatsheets](https://st3.ning.com/topology/rest/1.0/file/get/1211570060?profile=original)
 
 - [Probability Cheatsheets](https://github.com/wzchen/probability_cheatsheet)
