@@ -101,6 +101,7 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 - Free book [Hands on Machine Learning with R](https://bradleyboehmke.github.io/HOML/)
 
+- [Usefuel R packages](https://github.com/rstudio/RStartHere)
     
 
 :books: Material Extra
