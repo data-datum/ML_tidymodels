@@ -32,12 +32,17 @@ style_duo_accent(
 
 ```
 
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_logo("")
+```
+
 
 ---
 
 
 # ¿Qué es el aprendizaje automático? 
 
+    
 
 ---
 

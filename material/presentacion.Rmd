@@ -1,0 +1,195 @@
+---
+title: "Presentation Ninja"
+subtitle: "&#x2694;&#xFE0F; xaringan +<br/>&#x1F60E; xaringanthemer"  
+author: 
+  - "Yihui Xie"
+  - "Garrick Aden-Buie"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+background-image: url(img/pc2.jpg)
+background-size: cover
+class: inverse, animated slideInRight fadeOutLeft, middle
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#6c5396",
+  secondary_color = "#534173",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r , message=FALSE, warning=FALSE, include=FALSE} 
+library(fontawesome)
+library(emo)
+```
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_logo("img/logo-tidymodels.png")
+```
+
+# Introducción a Machine Learning con Tidymodels 
+
+
+### 1º Congreso Latinoamericano de Mujeres en Bioinformática y Ciencia de Datos
+
+
+
+---
+
+## Quienes somos 
+
+```{r echo=FALSE, out.width = '80%'}
+knitr::include_graphics("img/equipo.png")
+```
+  
+
+---
+
+
+## Material de este tutorial 
+<br><br>
+## `r emo::ji("earth_americas")` https://ml-tidy-wibds.netlify.app/
+
+<br><br>
+## `r fa("github", fill = 'black')` https://bit.ly/ml-wibds 
+
+
+---
+
+## Programa
+
+
+
+
+---
+
+## ¿Qué es el aprendizaje automático? 
+
+
+### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
+
+
+
+
+---
+
+## Machine learning e IA
+
+
+```{r echo=FALSE, out.width = '75%',  fig.align='center'}
+knitr::include_graphics("img/ml-ia.png")
+```
+
+---
+
+## El aprendizaje automático y otros campos relacionados
+
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/ml-related.png")
+```
+
+Fuente: https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine-Learning.pdf 
+---
+
+## Ejemplos de ML/IA
+
+
+
+
+---
+
+
+* 
+
+
+Fuente: Slides de Yoshua Bengio en *khipu.ai2019* https://bit.ly/bengio-khipu
+
+---
+
+## Tipos de aprendizaje
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/ml.png")
+```
+
+
+---
+
+## Aprendizaje no supervisado
+
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/unsupervised.png")
+```
+    
+---
+
+## Aprendizaje supervisado
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/supervised.png")
+```
+
+---
+
+## Aprendizaje por refuerzo
+      
+
+
+---
+
+## Bias - Variance tradeoff
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/bias-variance.png")
+```
+
+
+* Para una introducción visual ver: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/
+---
+
+## Datos
+
+* Palmer Penguins
+
+
+---
+
+## Algoritmos
+
+* Arboles de decisión
+
+* Random Forest
+
+* XGBoost
+
+
+
+---
+
+
+
+---
+
+# Imágenes utilizadas (Unsplash)
+
+## Portada: https://unsplash.com/photos/WkfDrhxDMC8 
+
+## Conceptos: https://unsplash.com/photos/7lzIyp2Ork4 
+
