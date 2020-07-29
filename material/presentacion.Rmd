@@ -88,7 +88,7 @@ knitr::include_graphics("img/equipo.png")
 
 ---
 
-## Machine learning e IA
+## Aprendizaje automático e IA
 
 
 ```{r echo=FALSE, out.width = '75%',  fig.align='center'}
@@ -115,10 +115,10 @@ Fuente: https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine-Learni
 ---
 
 
-* 
+## [Aprendizaje automátca y Ética]
 
 
-Fuente: Slides de Yoshua Bengio en *khipu.ai2019* https://bit.ly/bengio-khipu
+*Fuente: Slides de Yoshua Bengio en *khipu.ai2019* https://bit.ly/bengio-khipu
 
 ---
 
@@ -161,16 +161,64 @@ knitr::include_graphics("img/bias-variance.png")
 ```
 
 
-* Para una introducción visual ver: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/
----
-
-## Datos
-
-* Palmer Penguins
-
+*Para una introducción visual ver: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/*
 
 ---
 
+## Datos: Palmer Penguins
+
+
+```{r eval=FALSE}
+install.packages("palmerpenguins") #ya disponible en CRAN
+```
+
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/penguins.png")
+```
+
+---
+
+## Exploración de datos
+
+```{r message=FALSE}
+library(palmerpenguins)
+library(dplyr)
+glimpse(penguins)
+```
+  
+---
+
+## Datos balanceados o desbalanceados
+
+Veamos si las clases están balanceadas
+```{r}
+penguins %>%
+  count(species)
+```
+
+**Las clases no están balanceadas**
+
+Es importante saber si un set de datos está balanceado o desbalanceado, ya que eso introduce un **sesgo en los algoritmos**. 
+
+---
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarize(across(where(is.numeric), mean, na.rm = TRUE))
+```
+
+---
+
+## Valores perdidos
+
+## Imputar valores perdidos
+
+## Centrado y escalado
+
+
+## 
+---
 ## Algoritmos
 
 * Arboles de decisión
