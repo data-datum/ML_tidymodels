@@ -3,74 +3,64 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/entorno/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/people/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ml-tidy-wibds.netlify.app/entorno/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/entorno/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/slides/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/slides/example/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/people/</loc>
-    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+    <loc>https://ml-tidy-wibds.netlify.app/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+    <loc>https://ml-tidy-wibds.netlify.app/author/</loc>
   </url>
   
   <url>
-    <loc>/author/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/author/</loc>
   </url>
   
   <url>
-    <loc>/author/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/author/</loc>
   </url>
   
   <url>
-    <loc>/author/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/authors/</loc>
   </url>
   
   <url>
-    <loc>/authors/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/categories/</loc>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/material/</loc>
   </url>
   
   <url>
-    <loc>/material/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/publication_types/</loc>
   </url>
   
   <url>
-    <loc>/publication_types/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/referencias/</loc>
   </url>
   
   <url>
-    <loc>/referencias/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>https://ml-tidy-wibds.netlify.app/tags/</loc>
   </url>
   
 </urlset>

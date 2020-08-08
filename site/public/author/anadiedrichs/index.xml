@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>anadiedrichs | Introducción a Machine Learning con Tidymodels</title>
+    <link>/author/anadiedrichs/</link>
+      <atom:link href="/author/anadiedrichs/index.xml" rel="self" type="application/rss+xml" />
+    <description>anadiedrichs</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/imagen-congreso.jpeg</url>
+      <title>anadiedrichs</title>
+      <link>/author/anadiedrichs/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/author/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/author/</guid>
+      <description>&lt;p&gt;Estudié Ingeniería en Sistemas de Información en UTN FRM. Trabajé en ingeniería de
+software hasta que apliqué al doctorado.
+Soy doctoranda en la UTN Mendoza. Mi investigación actual es sobre
+predicción de heladas usando aprendizaje automático y
+redes inalámbricas de sensores (Internet de las cosas).&lt;/p&gt;
+&lt;p&gt;He estado brindando clases universitarias en la UTN Mendoza
+como docente ayudante en Informática, Internet de las Cosas
+en la carrera de Ingeniería electrónica, y  Machine learning e Inteligencia
+Artificial para la carrera de Ing. en Sistemas.&lt;/p&gt;
+&lt;p&gt;Soy fundadora y co-organizadora del capítulo R-Ladies de Mendoza.&lt;/p&gt;
+&lt;p&gt;Para más detalles, visita mi sitio 
+&lt;a href=&#34;https://anadiedrichs.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;website&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

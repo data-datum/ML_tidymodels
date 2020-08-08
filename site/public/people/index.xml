@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docentes | Introducción a Machine Learning con Tidymodels</title>
+    <link>/people/</link>
+      <atom:link href="/people/index.xml" rel="self" type="application/rss+xml" />
+    <description>Docentes</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 07 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/imagen-congreso.jpeg</url>
+      <title>Docentes</title>
+      <link>/people/</link>
+    </image>
+    
+    <item>
+      <title>Equipo docente</title>
+      <link>/people/people/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/people/people/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

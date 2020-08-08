@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>roxana | Introducción a Machine Learning con Tidymodels</title>
+    <link>/author/roxana/</link>
+      <atom:link href="/author/roxana/index.xml" rel="self" type="application/rss+xml" />
+    <description>roxana</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>/img/imagen-congreso.jpeg</url>
+      <title>roxana</title>
+      <link>/author/roxana/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/author/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/author/</guid>
+      <description>&lt;p&gt;I am a postdoc researcher at Laboratorio de Estructura Molecular y Propiedades (LEMyP) at CONICET. I try to understand the inhibition mechanism of Cruzain, a cysteine protease involved in Chagas disease. Following that objective, I work with data analysis &amp;amp; machine learning.&lt;/p&gt;
+&lt;p&gt;I’m a Rladies chapter co-founder and co-organizer: Rladies Resistencia Corrientes, co-founder and co-organizer of a R user’s group (RUG) at my local area called R-en-el-NEA, and one of the organizers of latinoamerican R Conference, LatinR.&lt;/p&gt;
+&lt;p&gt;Also, I am an #rstats teacher assistant at Facultad de Ciencias Agrarias (UNNE), creating new material with R programming for an undergrad stats course, Probability and Statistics.&lt;/p&gt;
+&lt;p&gt;Visita mi sitio para más información este 
+&lt;a href=&#34;https://roxananoelia.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;enlace&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
