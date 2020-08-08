@@ -14,23 +14,24 @@ role: 'Doctoral Researcher'
 
 # Organizations/Affiliations
 organizations:
-- name: UTN 
-  url: 
+- name: UTN Mendoza
+  url: http://www.frm.utn.edu.ar/index.php
 
 # Short bio (displayed in user profile at end of posts)
 bio: 
 
 interests:
-- Internet of things
-- Machine Learning & Artificial Intelligence
-- R Programming
-- Python Programming
+- Internet de las cosas
+- Machine Learning e Inteligencia Artificial
+- Programación en R, Python y C
+- 
 
 
 education:
   courses:
   - course: Doctorado en Ingeniería (en curso)
     institution: (UTN FRM) Universidad Tecnológica Nacional - Facultad Regional Mendoza
+    year: 2020
 
   - course: Ingeniería en Sistemas de Información.
     institution: UTN FRM
@@ -52,10 +53,17 @@ user_groups:
 - Instructors
 ---
 
-I'm a Ph.D. candidate at UTN FRM. My current research focuses on prediction of frost location using machine learning and wireless sensor networks.
+Estudié Ingeniería en Sistemas de Información en UTN FRM. Trabajé en ingeniería de 
+software hasta que apliqué al doctorado. 
+Soy doctoranda en la UTN Mendoza. Mi investigación actual es sobre 
+predicción de heladas usando aprendizaje automático y 
+redes inalámbricas de sensores (Internet de las cosas).
 
-I have been lecturing Informatic and Internet of Things (Electronic Engineer Department), Machine learning and Artificial Intelligence (Information System Department) as a teacher assistant in UTN, Mendoza. 
+He estado brindando clases universitarias en la UTN Mendoza
+como docente ayudante en Informática, Internet de las Cosas
+en la carrera de Ingeniería electrónica, y  Machine learning e Inteligencia
+Artificial para la carrera de Ing. en Sistemas.
 
-I'm founder and co-organizer of R-Ladies Mendoza chapter.
+Soy fundadora y co-organizadora del capítulo R-Ladies de Mendoza.
 
-If you're interested in a more detailed information you can visit my personal [website](https://anadiedrichs.github.io/)
+Para más detalles, visita mi sitio [website](https://anadiedrichs.github.io/)

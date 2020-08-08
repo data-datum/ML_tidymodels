@@ -21,10 +21,10 @@ organizations:
 bio: 
 
 interests:
-- Artificial Intelligence
-- Machine Learning & Statistics
-- R Programming
-- Python Programming
+- Inteligencia Artificial
+- Aprendizaje automático y estadística
+- Programación en R
+- Programación en Python
 
 
 education:
@@ -74,4 +74,5 @@ I’m a Rladies chapter co-founder and co-organizer: Rladies Resistencia Corrien
 
 Also, I am an #rstats teacher assistant at Facultad de Ciencias Agrarias (UNNE), creating new material with R programming for an undergrad stats course, Probability and Statistics. 
 
-If you're interested in a more detailed information you can visit my personal [website](https://roxananoelia.netlify.app/)
+
+Visita mi sitio para más información este [enlace](https://roxananoelia.netlify.app/)

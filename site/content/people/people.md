@@ -1,4 +1,3 @@
-
 +++
 # A "Meet the Team" section created with the People widget.
 # This section displays people from `content/authors/` which belong to the `user_groups` below.
@@ -15,7 +14,7 @@ subtitle = ""
   # Choose which groups/teams of users to display.
   #   Edit `user_groups` in each user's profile to add them to one or more of these groups.
   user_groups = ["Instructors",
-    "Teaching Assistants"]
+                 "Teaching Assistants"]
     
 [design]
   # Show user's social networking links? (true/false)
