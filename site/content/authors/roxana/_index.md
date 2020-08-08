@@ -68,11 +68,12 @@ user_groups:
 - Instructors
 ---
 
-I am a postdoc researcher at Laboratorio de Estructura Molecular y Propiedades (LEMyP) at CONICET. I try to understand the inhibition mechanism of Cruzain, a cysteine protease involved in Chagas disease. Following that objective, I work with data analysis & machine learning.
+Soy investigadora postdoc en el Laboratorio de Estructura Molecular y Propiedades (LEMyP) en CONICET. Trato de entender el mecanismo de inhibición de la Cruzipaína, una cisteín-proteasa causante de la enfermedad de Chagas. Con este fin, trabajo con análisis de datos y aprendizaje automático. 
 
-I’m a Rladies chapter co-founder and co-organizer: Rladies Resistencia Corrientes, co-founder and co-organizer of a R user’s group (RUG) at my local area called R-en-el-NEA, and one of the organizers of latinoamerican R Conference, LatinR.
+Soy fundadora y organizadora de un capítulo de Rladies en Argentina: Rladies Resistencia Corrientes. También soy fundadora y organizadora de un grupo de usuarios de R, R-en-el-NEA, y parte del equipo organziador de la conferencia latinoamericana de R, LatinR. 
 
-Also, I am an #rstats teacher assistant at Facultad de Ciencias Agrarias (UNNE), creating new material with R programming for an undergrad stats course, Probability and Statistics. 
+Trabajo como profesora auxiliar en la Facultad de Ciencias Agrarias (UNNE), desarrollando material educativo basado en R para la materia de grado "Probabilidad y Estadística" y dando clases prácticas. 
 
+A inicios del 2020, he dado un curso de posgrado "R para análisis de datos" para biólogos, agrónomos, veterinarios, entre otros. 
 
 Visita mi sitio para más información este [enlace](https://roxananoelia.netlify.app/)

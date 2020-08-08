@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Referencias | Introducción a Machine Learning con Tidymodels</title>
-    <link>https://ml-tidy-wibds.netlify.app/referencias/</link>
-      <atom:link href="https://ml-tidy-wibds.netlify.app/referencias/index.xml" rel="self" type="application/rss+xml" />
+    <link>/referencias/</link>
+      <atom:link href="/referencias/index.xml" rel="self" type="application/rss+xml" />
     <description>Referencias</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
-      <url>https://ml-tidy-wibds.netlify.app/img/imagen-congreso.jpeg</url>
+      <url>/img/imagen-congreso.jpeg</url>
       <title>Referencias</title>
-      <link>https://ml-tidy-wibds.netlify.app/referencias/</link>
+      <link>/referencias/</link>
     </image>
     
   </channel>

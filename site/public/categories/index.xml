@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories | Introducción a Machine Learning con Tidymodels</title>
-    <link>https://ml-tidy-wibds.netlify.app/categories/</link>
-      <atom:link href="https://ml-tidy-wibds.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <link>/categories/</link>
+      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
-      <url>https://ml-tidy-wibds.netlify.app/img/imagen-congreso.jpeg</url>
+      <url>/img/imagen-congreso.jpeg</url>
       <title>Categories</title>
-      <link>https://ml-tidy-wibds.netlify.app/categories/</link>
+      <link>/categories/</link>
     </image>
     
   </channel>

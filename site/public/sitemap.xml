@@ -3,64 +3,69 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/people/</loc>
+    <loc>/people/</loc>
     <lastmod>2020-08-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/entorno/</loc>
+    <loc>/entorno/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/</loc>
+    <loc>/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/slides/</loc>
+    <loc>/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/slides/example/</loc>
+    <loc>/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/authors/anadiedrichs/</loc>
+    <loc>/privacy/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/authors/patri/</loc>
+    <loc>/authors/anadiedrichs/</loc>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/authors/roxana/</loc>
+    <loc>/authors/patri/</loc>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/authors/</loc>
+    <loc>/authors/roxana/</loc>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/categories/</loc>
+    <loc>/authors/</loc>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/material/</loc>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/publication_types/</loc>
+    <loc>/material/</loc>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/referencias/</loc>
+    <loc>/publication_types/</loc>
   </url>
   
   <url>
-    <loc>https://ml-tidy-wibds.netlify.app/tags/</loc>
+    <loc>/referencias/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>

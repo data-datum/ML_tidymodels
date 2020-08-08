@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introducción a Machine Learning con Tidymodels</title>
-    <link>https://ml-tidy-wibds.netlify.app/authors/patri/</link>
-      <atom:link href="https://ml-tidy-wibds.netlify.app/authors/patri/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/patri/</link>
+      <atom:link href="/authors/patri/index.xml" rel="self" type="application/rss+xml" />
     <description>Introducción a Machine Learning con Tidymodels</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
-      <url>https://ml-tidy-wibds.netlify.app/img/imagen-congreso.jpeg</url>
+      <url>/authors/patri/avatar_hu09f5fc0436b24f2f8766ab1cc488f66c_95228_270x270_fill_q90_lanczos_center.jpg</url>
       <title>Introducción a Machine Learning con Tidymodels</title>
-      <link>https://ml-tidy-wibds.netlify.app/authors/patri/</link>
+      <link>/authors/patri/</link>
     </image>
     
   </channel>
