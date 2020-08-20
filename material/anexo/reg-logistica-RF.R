@@ -97,3 +97,7 @@ collect_metrics(penguin_final)
 collect_predictions(penguin_final) %>%
   conf_mat(sex, .pred_class)
 
+install.packages("vip")
+library(vip)
+
+    
