@@ -1,0 +1,227 @@
+---
+title: "classification_example"
+author: "Ana Diedrichs"
+date: "8/21/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Introducción
+
+Este notebook mostrará clasificación sobre el dataset palmerpenguins usando regresión logística.
+
+## Librerias a utilizar
+
+
+```{r}
+library(tidymodels)
+library(tidyverse)
+```
+
+## Dataset
+
+Cargamos el dataset
+
+
+```{r}
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+```
+
+```{r}
+str(penguins)
+```
+
+Cuantos pinguinos hay en de cada sexo. Observamos que son similares las cantidades.
+
+```{r}
+penguins %>% 
+  group_by(sex) %>%
+  summarise(total = n())
+```
+
+Observamos que hay valores perdidos. Elinamos las filas de los valores perdidos
+
+```{r}
+cleaned_penguin <- penguins %>% drop_na()
+```
+
+```{r}
+nrow(cleaned_penguin)
+165+168
+```
+
+
+## Receta
+
+Definimos la receta de preprocesamiento del dataset
+
+```{r}
+penguin_split <- initial_split(cleaned_penguin, prop = 3/4, strata = "sex")
+penguin_train <- training(penguin_split)
+penguin_test <- testing(penguin_split)
+```
+
+## Modelo
+
+Entrenamos el modelo con datos de entrenamiento.
+
+```{r}
+logit_fit <- 
+  logistic_reg(mode = "classification") %>%
+  set_engine(engine = "glm") %>% 
+  fit(sex ~ ., data = penguin_train)
+```
+
+## Predicción
+
+```{r}
+## get prediction on train set
+pred_logit_train <- predict(logit_fit, new_data = penguin_train)
+## get prediction on test set
+pred_logit_test <- predict(logit_fit, new_data = penguin_test)
+## get probabilities on test set
+prob_logit_test <- predict(logit_fit, new_data = penguin_test, type="prob")
+```
+
+## Rendimiento
+
+Model performance: cuan bueno (o malo) es el modelo que ajustamos a los datos de entrenamiento.
+
+```{r}
+metrics(bind_cols(penguin_test, pred_logit_test), truth = sex, estimate = .pred_class)
+```
+
+```{r}
+multimetric <- metric_set(accuracy, bal_accuracy, sens, yardstick::spec, precision, recall, ppv, npv)
+multimetric(bind_cols(penguin_test, pred_logit_test), truth = sex, estimate = .pred_class) 
+```
+
+```{r}
+roc_auc(bind_cols(penguin_test, prob_logit_test), truth = sex, .pred_female)
+
+#bind_cols(penguin_test, prob_logit_test)
+```
+
+```{r}
+roc_data <- roc_curve(bind_cols(penguin_test, prob_logit_test), truth = sex,.pred_female) 
+roc_data %>%  
+  ggplot(aes(x = 1 - specificity, y = sensitivity)) +
+  geom_path() +
+  geom_abline(lty = 3) + 
+  coord_equal()
+```
+
+
+## Caso multiclase
+
+Observamos que el dataset tiene datos de tres especies
+
+```{r}
+glimpse(cleaned_penguin)
+```
+
+```{r}
+cleaned_penguin %>%
+  group_by(species) %>%
+  tally()
+```
+
+Vemos que se relevaron más pinguinos de las clases Adelie y Gentoo que de Chinstrap.
+¿Afectará esto al modelo clasificador?
+
+```{r}
+split <- initial_split(cleaned_penguin, prop = 3/4, strata = "species")
+train <- training(penguin_split)
+test <- testing(penguin_split)
+```
+
+HASTA AQUI LLEGUE A CORRER
+
+```{r}
+rf_fit <- rand_forest(trees = 500) %>% 
+  set_engine("ranger") %>% 
+  set_mode("classification") %>% 
+  fit(species ~ ., data = train)
+```
+
+```{r}
+rf_fit
+```
+
+Prediccion en entrenamiento 
+
+```{r}
+rf_training_pred <- 
+  predict(rf_fit, train) %>% 
+  bind_cols(predict(rf_fit, train, type = "prob")) %>% 
+  # Add the true outcome data back in
+  bind_cols(train %>% 
+              select(species))
+```
+
+
+
+```{r}
+multimetric <- metric_set(accuracy, bal_accuracy, sens, yardstick::spec, precision, recall, ppv, npv)
+multimetric(rf_training_pred, truth = species, estimate = .pred_class) 
+
+```
+
+Prediccion en testeo 
+```{r}
+rf_test_pred <- 
+  predict(rf_fit, test) %>% 
+  bind_cols(predict(rf_fit, test, type = "prob")) %>% 
+  # Add the true outcome data back in
+  bind_cols(test %>% 
+              select(species))
+```
+
+
+```{r}
+multimetric <- metric_set(accuracy, bal_accuracy, sens, yardstick::spec, precision, recall, ppv, npv)
+multimetric(rf_test_pred, truth = species, estimate = .pred_class) 
+
+```
+
+```{r}
+head(rf_test_pred)
+```
+
+```{r}
+table(rf_test_pred$.pred_class, rf_test_pred$species)
+```
+
+TODO redes neuronales
+
+
+## Resampling
+
+Agregar Cross validation
+
+TODO 
+
+
+## Desbalance de dataset
+
+Uso de themis, no veo necesario dar este tema para este dataset, ademas para no hacer
+mas complejo el taller.
+
+https://github.com/tidymodels/themis
+
+
+## Referencias o fuentes de interes o comments to myself
+
+* Blog Rstudio, Edgar Ruiz, https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/
+Me gusto las imagenes y ejemplos simples del uso de tidymodels
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that 
+
+* De aqui me base la mayor parte https://stateofther.github.io/finistR2019/s-tidymodels.html
+
+* En este notebook usan un dataset bien desbalanceado, interesante para ver si está o no 
+disponible https://www.kaggle.com/ar89dsl/exploring-tidymodels
