@@ -53,7 +53,7 @@ En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la ve
 -   Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
 
 ```r
-mis_paquetes <- c("tidyverse", "tidymodels","devtools", "kknn", "rpart", "rpart.plot", "rattle", "AmesHousing", "ranger", "partykit", "vip")
+mis_paquetes <- c("tidyverse", "tidymodels","devtools", "datos", "kknn", "rpart", "rpart.plot", "rattle", "AmesHousing", "ranger", "partykit", "vip")
 
 install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 
@@ -66,11 +66,7 @@ Para poder instalar de manera exitosa los paquetes, es necesario que estés cone
 Para verificar que los paquetes se cargaron correctamente, por favor ejecutá las sentencias que están a continuación:
 
 ```r
-easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
-                        "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
-                        "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
-                        "RColorBrewer", "ggtext","ggthemes","hrbrthemes","plotly","highcharter","GGally",
-                        "sf","maps", "mapdata","mapproj","rnaturalearth","devtools")
+easypackages::libraries("tidyverse", "tidymodels","devtools", "datos", "kknn", "rpart", "rattle", "AmesHousing", "ranger", "partykit", "vip")
 
 ```
 ✍️ Slides y Código
