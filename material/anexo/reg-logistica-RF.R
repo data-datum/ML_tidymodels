@@ -7,10 +7,11 @@ library(palmerpenguins)
 penguins_df<-penguins %>%
   filter(!is.na(sex))%>%
   select(-year, -island)
-
+  
 library(tidymodels)
 library(ranger)
 set.seed(123)
+library(rsamples)
 penguin_split<-initial_split(penguins_df, strata=sex)
 penguin_train<-training(penguin_split)
 penguin_test<-testing(penguin_split)
@@ -54,7 +55,8 @@ rf_fit<-penguin_workf%>%
   )
 
 rf_fit
-rf_fit$metrics
+rf_fit$.metrics
+rf_fit$.predictions
 #roc curve y accuracy
 rf_fit %>%
   collect_metrics()
@@ -73,7 +75,7 @@ glm_fit %>%
   roc_curve(sex, .pred_female) %>%
   ggplot(aes(1 - specificity, sensitivity, color = id)) +
   geom_abline(lty = 2, color = "gray80", size = 1.5) +
-  geom_path(show.legend = FALSE, alpha = 0.6, size = 1.2) +
+  geom_path(show.legend = TRUE, alpha = 0.6, size = 1.2) +
   coord_equal()
 
 #random forest CURVA ROC
@@ -97,6 +99,7 @@ collect_metrics(penguin_final)
 collect_predictions(penguin_final) %>%
   conf_mat(sex, .pred_class)
 
+# PARA HACER
 install.packages("vip")
 library(vip)
 

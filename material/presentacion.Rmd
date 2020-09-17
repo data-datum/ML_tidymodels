@@ -71,7 +71,8 @@ knitr::include_graphics("img/equipo.png")
 
 ---
 
-## Programa
+## Cronograma
+
 
 
 
@@ -81,7 +82,7 @@ knitr::include_graphics("img/equipo.png")
 ## ¿Qué es el aprendizaje automático? 
 
 
-### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
+#### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
 
 
 
@@ -104,21 +105,21 @@ knitr::include_graphics("img/ml-ia.png")
 knitr::include_graphics("img/ml-related.png")
 ```
 
-Fuente: https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine-Learning.pdf 
+Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine-Learning.pdf)
 ---
 
 ## Ejemplos de ML/IA
 
 
+### [AlphaFold: plegamiento de proteínas](https://deepmind.com/blog/article/AlphaFold-Using-AI-for-scientific-discovery) 
 
 
----
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/prot-fold.png")
+```
 
 
-## [Aprendizaje automátca y Ética]
-
-
-*Fuente: Slides de Yoshua Bengio en *khipu.ai2019* https://bit.ly/bengio-khipu
+#### [De novo generation of hit-like molecules from gene expression signatures using artificial intelligence](https://www.nature.com/articles/s41467-019-13807-w)
 
 ---
 
@@ -145,11 +146,6 @@ knitr::include_graphics("img/unsupervised.png")
 ```{r echo=FALSE, out.width = '90%',  fig.align='center'}
 knitr::include_graphics("img/supervised.png")
 ```
-
----
-
-## Aprendizaje por refuerzo
-      
 
 
 ---
@@ -189,6 +185,10 @@ glimpse(penguins)
   
 ---
 
+
+
+---
+
 ## Datos balanceados o desbalanceados
 
 Veamos si las clases están balanceadas
@@ -225,11 +225,11 @@ penguins %>%
 
 * Random Forest
 
-* XGBoost
 
 
 
 ---
+
 
 
 
