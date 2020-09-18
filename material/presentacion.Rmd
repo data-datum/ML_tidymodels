@@ -42,6 +42,12 @@ library(emo)
 xaringanExtra::use_logo("img/logo-tidymodels.png")
 ```
 
+
+```{r xaringan-tachyons, echo=FALSE}
+xaringanExtra::use_tachyons()
+```
+
+
 # Introducción a Machine Learning con Tidymodels 
 
 
@@ -79,10 +85,52 @@ knitr::include_graphics("img/equipo.png")
 
 ---
 
+## ¿Qué es modelar? 
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### Es el proceso de desarrollo de una herramienta matemática que genera una predicción precisa. 
+### Entrenamos un modelo para encontrar esa predicción precisa. <sup>*</sup>
+]
+
+
+
+.footnote[<sup>*</sup> Applied Predictive Modeling]
+---
+
 ## ¿Qué es el aprendizaje automático? 
 
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
 
-#### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
+]
+
+---
+
+## Conceptos Importantes
+
+* __Muestra, punto, observación, instancia__ se refiere a una unidad de análisis.
+<br>
+
+* __Set de entrenamiento__ son los datos utilizados para el modelado. 
+<br>
+
+* __Set de prueba__ son los datos utilizados para medir el desempeño del modelo, entre un conjunto de candidatos. 
+<br>
+
+* __Atributos, predictores, variables independientes o descriptores__ son los datos de entrada para la ecuación de predicción.
+<br> 
+* __Salida, variable dependiente, variable respuesta, clase, o "target"__ es la cantidad a ser predicha. 
+<br>
+
+* __Datos categóricos, también conocidos como nominales o atributos__ toman valores específicos que no tienen escala. Ejemplo: bueno/malo, rojo/azul, etc. 
+<br>
+* __Datos continuos__ son a base de escalas numéricas. El costo de un producto, la presión sanguínea, etc.
+
+.footnote[<sup>*</sup> Applied Predictive Modeling]
+
+---
+
+## En una matriz de datos 
 
 
 
@@ -96,6 +144,9 @@ knitr::include_graphics("img/equipo.png")
 knitr::include_graphics("img/ml-ia.png")
 ```
 
+
+.footnote[<sup>*</sup> ]
+
 ---
 
 ## El aprendizaje automático y otros campos relacionados
@@ -108,7 +159,7 @@ knitr::include_graphics("img/ml-related.png")
 Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine-Learning.pdf)
 ---
 
-## Ejemplos de ML/IA
+## Aplicaciones en la biología molecular
 
 
 ### [AlphaFold: plegamiento de proteínas](https://deepmind.com/blog/article/AlphaFold-Using-AI-for-scientific-discovery) 
@@ -123,12 +174,28 @@ knitr::include_graphics("img/prot-fold.png")
 
 ---
 
-## Tipos de aprendizaje
+### Otros hitos en el campo de la IA
 
+---
+
+## Tipos de aprendizaje
+        
 ```{r echo=FALSE, out.width = '90%',  fig.align='center'}
 knitr::include_graphics("img/ml.png")
 ```
 
+
+
+
+---
+
+## Aprendizaje supervisado
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/supervised.png")
+```
+
+.footnote[<sup>*</sup> Machine Learning with R, the tidyverse and mlr]
 
 ---
 
@@ -139,14 +206,7 @@ knitr::include_graphics("img/ml.png")
 knitr::include_graphics("img/unsupervised.png")
 ```
     
----
-
-## Aprendizaje supervisado
-
-```{r echo=FALSE, out.width = '90%',  fig.align='center'}
-knitr::include_graphics("img/supervised.png")
-```
-
+.footnote[<sup>*</sup> Machine Learning with R, the tidyverse and mlr]
 
 ---
 
@@ -159,6 +219,186 @@ knitr::include_graphics("img/bias-variance.png")
 
 *Para una introducción visual ver: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/*
 
+
+.footnote[<sup>*</sup> Machine Learning with R, the tidyverse and mlr]
+
+---
+
+## Resampleo 
+
+El resampleo se utiliza en ML para estimar el desempeño de un modelo. 
+
+
+
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/resampling.png")
+```
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
+
+---
+
+
+## Validación cruzada
+
+
+
+
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/CV.png")
+```
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
+
+
+---
+
+## Bootstraping 
+## (muestreo con reemplazo)
+
+
+
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
+---
+
+# Árboles de decisión
+
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/bret-tree.png")
+```
+
+
+---
+
+# Árboles de decisión
+
+ 
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/decision1.png")
+```
+
+
+
+---
+
+# Random Forest
+
+
+
+
+
+
+---
+# Métricas
+
+
+
+
+---
+
+## Métricas en la clasificación
+
+     
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/metricas1.png")
+```
+
+---
+
+# Positivos verdaderos
+     
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/metricas2.png")
+```
+
+
+---
+
+## Falsos positivos 
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/metricas3.png")
+```
+
+
+---
+
+# Negativos verdaderos
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/metricas4.png")
+```
+
+---
+
+## Falsos Negativos  
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/metricas5.png")
+```
+
+
+
+---
+
+## Matriz de Confusión
+      
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/matriz-confusion.png")
+```
+
+    
+
+
+.footnote[Traducido de 10.7717/peerj.5666/fig-2]
+
+---
+## De caret a tidymodels
+
+
+
+.pull-left[
+El objetivo de caret era **unificar la sintaxis** para modelizar datos usando como base distintas librerías de R. 
+<img src="img/caret.png" width="100%" align="right" />
+]
+
+--
+
+.pull-right[
+El objetivo de Tidymodels es además hacerlo **en un formato ordenado**. 
+<img src="img/tidymodels.png" width="80%" align="right" />
+
+]
+
+
+---
+## Tidymodels
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Tidymodels es un grupo de paquetes centrado en las tareas de modelización de datos. 
+### La modelización consta de varios pasos, la idea es que cada paso lo realice una librería diferente. 
+]
+
+
+
+.footnote[Sitio web: https://www.tidymodels.org/]
+
+---
+
+# Etapas del modelado de datos
+
+
+
+
 ---
 
 ## Datos: Palmer Penguins
@@ -169,11 +409,16 @@ install.packages("palmerpenguins") #ya disponible en CRAN
 ```
 
 
-```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+```{r echo=FALSE, out.width = '85%',  fig.align='center'}
 knitr::include_graphics("img/penguins.png")
 ```
 
+
+.footnote[<sup>*</sup> https://github.com/allisonhorst/palmerpenguins]
+
+
 ---
+
 
 
 ---

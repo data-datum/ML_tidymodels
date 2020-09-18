@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
     <meta name="author" content="Yihui Xie" />
     <meta name="author" content="Garrick Aden-Buie" />
-    <meta name="date" content="2020-09-17" />
+    <meta name="date" content="2020-09-18" />
     <script src="libs/xaringanExtra-logo/logo.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -17,7 +18,7 @@ class: center, middle, inverse, title-slide
 ## ⚔️ xaringan +<br/>😎 xaringanthemer
 ### Yihui Xie
 ### Garrick Aden-Buie
-### 2020-09-17
+### 2020-09-18
 
 ---
 
@@ -45,6 +46,10 @@ class: inverse, animated slideInRight fadeOutLeft, middle
   top:1em;right:1em;
 }
 </style>
+
+
+
+
 
 # Introducción a Machine Learning con Tidymodels 
 
@@ -81,10 +86,52 @@ class: inverse, animated slideInRight fadeOutLeft, middle
 
 ---
 
+## ¿Qué es modelar? 
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### Es el proceso de desarrollo de una herramienta matemática que genera una predicción precisa. 
+### Entrenamos un modelo para encontrar esa predicción precisa. &lt;sup&gt;*&lt;/sup&gt;
+]
+
+
+
+.footnote[&lt;sup&gt;*&lt;/sup&gt; Applied Predictive Modeling]
+---
+
 ## ¿Qué es el aprendizaje automático? 
 
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
 
-#### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
+]
+
+---
+
+## Conceptos Importantes
+
+* __Muestra, punto, observación, instancia__ se refiere a una unidad de análisis.
+&lt;br&gt;
+
+* __Set de entrenamiento__ son los datos utilizados para el modelado. 
+&lt;br&gt;
+
+* __Set de prueba__ son los datos utilizados para medir el desempeño del modelo, entre un conjunto de candidatos. 
+&lt;br&gt;
+
+* __Atributos, predictores, variables independientes o descriptores__ son los datos de entrada para la ecuación de predicción.
+&lt;br&gt; 
+* __Salida, variable dependiente, variable respuesta, clase, o "target"__ es la cantidad a ser predicha. 
+&lt;br&gt;
+
+* __Datos categóricos, también conocidos como nominales o atributos__ toman valores específicos que no tienen escala. Ejemplo: bueno/malo, rojo/azul, etc. 
+&lt;br&gt;
+* __Datos continuos__ son a base de escalas numéricas. El costo de un producto, la presión sanguínea, etc.
+
+.footnote[&lt;sup&gt;*&lt;/sup&gt; Applied Predictive Modeling]
+
+---
+
+## En una matriz de datos 
 
 
 
@@ -96,6 +143,9 @@ class: inverse, animated slideInRight fadeOutLeft, middle
 
 &lt;img src="img/ml-ia.png" width="75%" style="display: block; margin: auto;" /&gt;
 
+
+.footnote[&lt;sup&gt;*&lt;/sup&gt; ]
+
 ---
 
 ## El aprendizaje automático y otros campos relacionados
@@ -106,7 +156,7 @@ class: inverse, animated slideInRight fadeOutLeft, middle
 Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine-Learning.pdf)
 ---
 
-## Ejemplos de ML/IA
+## Aplicaciones en la biología molecular
 
 
 ### [AlphaFold: plegamiento de proteínas](https://deepmind.com/blog/article/AlphaFold-Using-AI-for-scientific-discovery) 
@@ -119,10 +169,24 @@ Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine
 
 ---
 
-## Tipos de aprendizaje
+### Otros hitos en el campo de la IA
 
+---
+
+## Tipos de aprendizaje
+        
 &lt;img src="img/ml.png" width="90%" style="display: block; margin: auto;" /&gt;
 
+
+
+
+---
+
+## Aprendizaje supervisado
+
+&lt;img src="img/supervised.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+.footnote[&lt;sup&gt;*&lt;/sup&gt; Machine Learning with R, the tidyverse and mlr]
 
 ---
 
@@ -131,12 +195,7 @@ Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine
 
 &lt;img src="img/unsupervised.png" width="90%" style="display: block; margin: auto;" /&gt;
     
----
-
-## Aprendizaje supervisado
-
-&lt;img src="img/supervised.png" width="90%" style="display: block; margin: auto;" /&gt;
-
+.footnote[&lt;sup&gt;*&lt;/sup&gt; Machine Learning with R, the tidyverse and mlr]
 
 ---
 
@@ -146,6 +205,159 @@ Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine
 
 
 *Para una introducción visual ver: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/*
+
+
+.footnote[&lt;sup&gt;*&lt;/sup&gt; Machine Learning with R, the tidyverse and mlr]
+
+---
+
+## Resampleo 
+
+El resampleo se utiliza en ML para estimar el desempeño de un modelo. 
+
+
+
+&lt;img src="img/resampling.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
+
+---
+
+
+## Validación cruzada
+
+
+
+
+&lt;img src="img/CV.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
+
+
+---
+
+## Bootstraping 
+## (muestreo con reemplazo)
+
+
+
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
+---
+
+# Árboles de decisión
+
+  
+&lt;img src="img/bret-tree.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Árboles de decisión
+
+ 
+&lt;img src="img/decision1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+# Random Forest
+
+
+
+
+
+
+---
+# Métricas
+
+
+
+
+---
+
+## Métricas en la clasificación
+
+     
+  
+&lt;img src="img/metricas1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Positivos verdaderos
+     
+  
+&lt;img src="img/metricas2.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Falsos positivos 
+  
+&lt;img src="img/metricas3.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Negativos verdaderos
+  
+&lt;img src="img/metricas4.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Falsos Negativos  
+  
+&lt;img src="img/metricas5.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+## Matriz de Confusión
+      
+  
+&lt;img src="img/matriz-confusion.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+    
+
+
+.footnote[Traducido de 10.7717/peerj.5666/fig-2]
+
+---
+## De caret a tidymodels
+
+
+
+.pull-left[
+El objetivo de caret era **unificar la sintaxis** para modelizar datos usando como base distintas librerías de R. 
+&lt;img src="img/caret.png" width="100%" align="right" /&gt;
+]
+
+--
+
+.pull-right[
+El objetivo de Tidymodels es además hacerlo **en un formato ordenado**. 
+&lt;img src="img/tidymodels.png" width="80%" align="right" /&gt;
+
+]
+
+
+---
+## Tidymodels
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Tidymodels es un grupo de paquetes centrado en las tareas de modelización de datos. 
+### La modelización consta de varios pasos, la idea es que cada paso lo realice una librería diferente. 
+]
+
+
+
+.footnote[Sitio web: https://www.tidymodels.org/]
 
 ---
 
@@ -158,9 +370,14 @@ install.packages("palmerpenguins") #ya disponible en CRAN
 ```
 
 
-&lt;img src="img/penguins.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/penguins.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[&lt;sup&gt;*&lt;/sup&gt; https://github.com/allisonhorst/palmerpenguins]
+
 
 ---
+
 
 
 ---
