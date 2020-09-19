@@ -421,7 +421,7 @@ knitr::include_graphics("img/matriz-confusion.png")
 
 ### El modelo más simple que pueda ser ajustado es el más factible.
 
-### Si tuviéramos para elegir entre un modelo simple y uno complejo con el mismo desempeño, debo preferir **siempre** el modelo más simple
+#### Si tuviéramos para elegir entre un modelo simple y uno complejo con el mismo desempeño, debo preferir **siempre** el modelo más simple
 ]
 
 
