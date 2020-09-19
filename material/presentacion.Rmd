@@ -1,10 +1,4 @@
 ---
-title: "Presentation Ninja"
-subtitle: "&#x2694;&#xFE0F; xaringan +<br/>&#x1F60E; xaringanthemer"  
-author: 
-  - "Yihui Xie"
-  - "Garrick Aden-Buie"
-date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -15,9 +9,9 @@ output:
       countIncrementalSlides: false
 ---
 
-background-image: url(img/pc2.jpg)
+background-image: url(img/portada.png)
 background-size: cover
-class: inverse, animated slideInRight fadeOutLeft, middle
+class: animated slideInRight fadeOutLeft, middle
 
 
 ```{r setup, include=FALSE}
@@ -57,9 +51,9 @@ xaringanExtra::use_tachyons()
 
 ---
 
-## Quienes somos 
+## Equipo 
 
-```{r echo=FALSE, out.width = '80%'}
+```{r echo=FALSE, out.width = '100%'}
 knitr::include_graphics("img/equipo.png")
 ```
   
@@ -176,6 +170,14 @@ knitr::include_graphics("img/prot-fold.png")
 
 ### Otros hitos en el campo de la IA
 
+        
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/AI-hits.png")
+```
+
+
+
+
 ---
 
 ## Tipos de aprendizaje
@@ -224,6 +226,46 @@ knitr::include_graphics("img/bias-variance.png")
 
 ---
 
+# Exploración de datos
+
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### La exploración de datos es un proceso iterativo en el que uno genera preguntas sobre sus datos, busca respuestas mediante la visualización y transformación de los mismos. Esto me permite afinar las preguntas e incluso, generar nuevas preguntas.
+
+]
+
+.footnote[Fuente: https://r4ds.had.co.nz/exploratory-data-analysis.html]
+---
+
+## Cobran especial importancia en esta etapa
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+#### Estudio de la distribución de las variables
+
+#### Presencia de valores perdidos
+
+#### Desbalance de las clases o grupos en estudio
+
+#### Presencia de datos extremos. 
+
+#### Covariación de variables
+
+]
+
+.footnote[Fuente: https://r4ds.had.co.nz/exploratory-data-analysis.html]
+
+
+---
+
+# Entrenamiento y testeo
+
+
+
+
+---
 ## Resampleo 
 
 El resampleo se utiliza en ML para estimar el desempeño de un modelo. 
@@ -298,6 +340,13 @@ knitr::include_graphics("img/decision1.png")
 
 
 
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Durante el modelado de datos es probable que no hagamos un solo modelo, sino varios. 
+### La manera de saber qué tan buenos son, es evaluar esos algoritmos mediante métricas.
+### Tenemos métricas de regresión y clasificación.
+]
+
 
 ---
 
@@ -360,6 +409,7 @@ knitr::include_graphics("img/matriz-confusion.png")
 
 .footnote[Traducido de 10.7717/peerj.5666/fig-2]
 
+
 ---
 ## De caret a tidymodels
 
@@ -397,6 +447,27 @@ El objetivo de Tidymodels es además hacerlo **en un formato ordenado**.
 # Etapas del modelado de datos
 
 
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/modeling.png")
+```
+
+.footnote[Sitio web: https://www.tmwr.org/software-modeling.html]
+
+
+---
+
+## Modelado y tidymodels
+
+
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/tidy-w.png")
+```
+
+---
+class: inverse, center
+
+# Datos 
 
 
 ---
@@ -409,15 +480,24 @@ install.packages("palmerpenguins") #ya disponible en CRAN
 ```
 
 
-```{r echo=FALSE, out.width = '85%',  fig.align='center'}
+
+
+```{r echo=FALSE, out.width = '65%',  fig.align='center'}
 knitr::include_graphics("img/penguins.png")
 ```
 
 
+```{r echo=FALSE, out.width = '35%',  fig.align='right'}
+knitr::include_graphics("img/pico.png")
+```
+
+
+
+
+
+
 .footnote[<sup>*</sup> https://github.com/allisonhorst/palmerpenguins]
 
-
----
 
 
 

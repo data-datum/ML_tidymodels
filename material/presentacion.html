@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Presentation Ninja</title>
+    <title>presentacion.utf8</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Yihui Xie" />
-    <meta name="author" content="Garrick Aden-Buie" />
-    <meta name="date" content="2020-09-18" />
     <script src="libs/xaringanExtra-logo/logo.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Presentation Ninja
-## ⚔️ xaringan +<br/>😎 xaringanthemer
-### Yihui Xie
-### Garrick Aden-Buie
-### 2020-09-18
-
----
 
 
-background-image: url(img/pc2.jpg)
+background-image: url(img/portada.png)
 background-size: cover
-class: inverse, animated slideInRight fadeOutLeft, middle
+class: animated slideInRight fadeOutLeft, middle
 
 
 
@@ -60,9 +48,9 @@ class: inverse, animated slideInRight fadeOutLeft, middle
 
 ---
 
-## Quienes somos 
+## Equipo 
 
-&lt;img src="img/equipo.png" width="80%" /&gt;
+&lt;img src="img/equipo.png" width="100%" /&gt;
   
 
 ---
@@ -171,6 +159,12 @@ Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine
 
 ### Otros hitos en el campo de la IA
 
+        
+&lt;img src="img/AI-hits.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+
 ---
 
 ## Tipos de aprendizaje
@@ -211,6 +205,46 @@ Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine
 
 ---
 
+# Exploración de datos
+
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### La exploración de datos es un proceso iterativo en el que uno genera preguntas sobre sus datos, busca respuestas mediante la visualización y transformación de los mismos. Esto me permite afinar las preguntas e incluso, generar nuevas preguntas.
+
+]
+
+.footnote[Fuente: https://r4ds.had.co.nz/exploratory-data-analysis.html]
+---
+
+## Cobran especial importancia en esta etapa
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+#### Estudio de la distribución de las variables
+
+#### Presencia de valores perdidos
+
+#### Desbalance de las clases o grupos en estudio
+
+#### Presencia de datos extremos. 
+
+#### Covariación de variables
+
+]
+
+.footnote[Fuente: https://r4ds.had.co.nz/exploratory-data-analysis.html]
+
+
+---
+
+# Entrenamiento y testeo
+
+
+
+
+---
 ## Resampleo 
 
 El resampleo se utiliza en ML para estimar el desempeño de un modelo. 
@@ -277,6 +311,13 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 
 
 
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Durante el modelado de datos es probable que no hagamos un solo modelo, sino varios. 
+### La manera de saber qué tan buenos son, es evaluar esos algoritmos mediante métricas.
+### Tenemos métricas de regresión y clasificación.
+]
+
 
 ---
 
@@ -327,6 +368,7 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 
 .footnote[Traducido de 10.7717/peerj.5666/fig-2]
 
+
 ---
 ## De caret a tidymodels
 
@@ -361,6 +403,30 @@ El objetivo de Tidymodels es además hacerlo **en un formato ordenado**.
 
 ---
 
+# Etapas del modelado de datos
+
+
+  
+&lt;img src="img/modeling.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+.footnote[Sitio web: https://www.tmwr.org/software-modeling.html]
+
+
+---
+
+## Modelado y tidymodels
+
+
+&lt;img src="img/tidy-w.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, center
+
+# Datos 
+
+
+---
+
 ## Datos: Palmer Penguins
 
 
@@ -370,13 +436,20 @@ install.packages("palmerpenguins") #ya disponible en CRAN
 ```
 
 
-&lt;img src="img/penguins.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+&lt;img src="img/penguins.png" width="65%" style="display: block; margin: auto;" /&gt;
+
+
+&lt;img src="img/pico.png" width="35%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+
+
+
 
 
 .footnote[&lt;sup&gt;*&lt;/sup&gt; https://github.com/allisonhorst/palmerpenguins]
 
-
----
 
 
 
