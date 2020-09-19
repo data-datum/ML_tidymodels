@@ -370,6 +370,53 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 
 
 ---
+
+## Principios del aprendizaje
+
+### 1. Navaja de Occam
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### El modelo más simple que pueda ser ajustado es el más factible.
+
+### Si tuviéramos para elegir entre un modelo simple y uno complejo con el mismo desempeño, debo preferir **siempre** el modelo más simple
+]
+
+
+
+
+.footnote[__Learning from data__ Abu-Mostafa, Y.]
+
+---
+
+## Principios del aprendizaje
+
+### 2. Bias en el muestreo (sampling bias)
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Si los datos contienen un sesgo, el algoritmo tendrá ese mismo sesgo.
+]
+
+
+.footnote[__Learning from data__ Abu-Mostafa, Y.]
+
+---
+
+## Principios del aprendizaje
+
+### 3. Data snooping
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### El set de datos de testeo no debe usarse nunca durante la fase de entrenamiento, ya que esto arrojará resultados más optimistas que los esperados. 
+]
+
+.footnote[__Learning from data__ Abu-Mostafa, Y.]
+
+---
 ## De caret a tidymodels
 
 
