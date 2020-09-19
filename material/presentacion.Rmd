@@ -166,6 +166,13 @@ knitr::include_graphics("img/prot-fold.png")
 
 #### [De novo generation of hit-like molecules from gene expression signatures using artificial intelligence](https://www.nature.com/articles/s41467-019-13807-w)
 
+
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/gans.png")
+```
+
+
 ---
 
 ### Otros hitos en el campo de la IA
@@ -315,6 +322,8 @@ knitr::include_graphics("img/bret-tree.png")
 ```
 
 
+.footnote[Imagen tomada de https://www.packtpub.com/big-data-and-business-intelligence/machine-learning-r-second-edition]
+
 ---
 
 # Árboles de decisión
@@ -325,14 +334,59 @@ knitr::include_graphics("img/decision1.png")
 ```
 
 
-
+.footnote[https://bookdown.org/content/2031/arboles-de-decision-parte-i.html#que-son-los-arboles-de-decision]
 ---
 
 # Random Forest
 
+ 
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/random-forest1.png")
+```
 
 
+.footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
 
+---
+
+# Bootstraping
+
+ 
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/random-forest2.png")
+```
+
+.footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
+
+
+---
+
+# Bagging
+ 
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/random-forest3.png")
+```
+
+
+.footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
+
+---
+### Veamos que sucede al clasificar el conjunto de testeo
+ 
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/random-forest4.png")
+```
+
+.footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
+
+---
+### Voto mayoritario (majority vote)
+ 
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/random-forest5.png")
+```
+
+.footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
 
 
 ---
@@ -456,6 +510,21 @@ knitr::include_graphics("img/matriz-confusion.png")
 ]
 
 .footnote[__Learning from data__ Abu-Mostafa, Y.]
+
+---
+
+## Análisis No Supervisado
+
+### Análisis de componentes principales (PCA)
+
+
+
+---
+
+## Análisis No Supervisado
+
+### Clusterizado K-Means
+
 
 ---
 ## De caret a tidymodels
