@@ -189,15 +189,6 @@ Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine
 
 ---
 
-## Aprendizaje no supervisado
-
-
-&lt;img src="img/unsupervised.png" width="90%" style="display: block; margin: auto;" /&gt;
-    
-.footnote[&lt;sup&gt;*&lt;/sup&gt; Machine Learning with R, the tidyverse and mlr]
-
----
-
 ## Bias - Variance tradeoff
 
 &lt;img src="img/bias-variance.png" width="90%" style="display: block; margin: auto;" /&gt;
@@ -244,10 +235,14 @@ Fuente: [link](https://ldi.upenn.edu/sites/default/files/Introduction-to-Machine
 
 ---
 
-# Entrenamiento y testeo
+## Entrenamiento, validación y testeo
 
 
 
+&lt;img src="img/train-val-test.jpeg" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
 
 ---
 ## Resampleo 
@@ -278,7 +273,10 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 ---
 
 ## Bootstraping 
-## (muestreo con reemplazo)
+
+
+
+&lt;img src="img/bootstrap.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -287,6 +285,16 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 .footnote[Fuente: https://www.tmwr.org/resampling.html]
 ---
 
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### Tanto validación cruzada como bootstrap son técnicas de resampleo (resampling).
+### La diferencia radica en que la validación cruzada no es con reemplazo mientras que bootstrap sí lo es. 
+]
+
+
+
+
+---
 # Árboles de decisión
 
   
@@ -331,7 +339,7 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 &lt;img src="img/random-forest3.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
-.footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
+.footnote[Imagen tomada de]
 
 ---
 ### Veamos que sucede al clasificar el conjunto de testeo
@@ -413,6 +421,12 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 
 ---
 
+## Métricas de Regresión
+
+
+
+---
+
 ## Principios del aprendizaje
 
 ### 1. Navaja de Occam
@@ -460,17 +474,72 @@ El resampleo se utiliza en ML para estimar el desempeño de un modelo.
 
 ---
 
-## Análisis No Supervisado
 
-### Análisis de componentes principales (PCA)
+## Aprendizaje No Supervisado
 
+
+&lt;img src="img/unsupervised.png" width="90%" style="display: block; margin: auto;" /&gt;
+    
+.footnote[&lt;sup&gt;*&lt;/sup&gt; Machine Learning with R, the tidyverse and mlr]
 
 
 ---
 
-## Análisis No Supervisado
 
-### Clusterizado K-Means
+### Análisis de componentes principales (PCA)
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### El Análisis de Componentes Principales es una técnica de reducción de dimensiones. Técnica clásica en la estadística y en el análisis supervisado. Se basa en maximizar la variancia creando nuevas variables que son combinaciones lineales de las anteriores.* 
+
+]
+
+.footnote[Machine Learning with R, the tidyvserse and mlr]
+
+---
+
+## PCA
+
+
+
+ 
+&lt;img src="img/PC1-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## PCA
+
+
+ 
+&lt;img src="img/PC2-2.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## PCA
+
+ 
+&lt;img src="img/PC3.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## PCA
+
+&lt;img src="img/PC4-4.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+
+## Clusterizado o clustering
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### 
+]
+
 
 
 ---

@@ -208,17 +208,6 @@ knitr::include_graphics("img/supervised.png")
 
 ---
 
-## Aprendizaje no supervisado
-
-
-```{r echo=FALSE, out.width = '90%',  fig.align='center'}
-knitr::include_graphics("img/unsupervised.png")
-```
-    
-.footnote[<sup>*</sup> Machine Learning with R, the tidyverse and mlr]
-
----
-
 ## Bias - Variance tradeoff
 
 ```{r echo=FALSE, out.width = '90%',  fig.align='center'}
@@ -267,10 +256,16 @@ knitr::include_graphics("img/bias-variance.png")
 
 ---
 
-# Entrenamiento y testeo
+## Entrenamiento, validación y testeo
 
 
 
+```{r echo=FALSE, out.width = '40%',  fig.align='center'}
+knitr::include_graphics("img/train-val-test.jpeg")
+```
+
+
+.footnote[Fuente: https://www.tmwr.org/resampling.html]
 
 ---
 ## Resampleo 
@@ -305,7 +300,12 @@ knitr::include_graphics("img/CV.png")
 ---
 
 ## Bootstraping 
-## (muestreo con reemplazo)
+
+
+
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/bootstrap.png")
+```
 
 
 
@@ -314,6 +314,16 @@ knitr::include_graphics("img/CV.png")
 .footnote[Fuente: https://www.tmwr.org/resampling.html]
 ---
 
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### Tanto validación cruzada como bootstrap son técnicas de resampleo (resampling).
+### La diferencia radica en que la validación cruzada no es con reemplazo mientras que bootstrap sí lo es. 
+]
+
+
+
+
+---
 # Árboles de decisión
 
   
@@ -368,7 +378,7 @@ knitr::include_graphics("img/random-forest3.png")
 ```
 
 
-.footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
+.footnote[Imagen tomada de]
 
 ---
 ### Veamos que sucede al clasificar el conjunto de testeo
@@ -466,6 +476,12 @@ knitr::include_graphics("img/matriz-confusion.png")
 
 ---
 
+## Métricas de Regresión
+
+
+
+---
+
 ## Principios del aprendizaje
 
 ### 1. Navaja de Occam
@@ -513,17 +529,82 @@ knitr::include_graphics("img/matriz-confusion.png")
 
 ---
 
-## Análisis No Supervisado
 
-### Análisis de componentes principales (PCA)
+## Aprendizaje No Supervisado
 
+
+```{r echo=FALSE, out.width = '90%',  fig.align='center'}
+knitr::include_graphics("img/unsupervised.png")
+```
+    
+.footnote[<sup>*</sup> Machine Learning with R, the tidyverse and mlr]
 
 
 ---
 
-## Análisis No Supervisado
 
-### Clusterizado K-Means
+### Análisis de componentes principales (PCA)
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### El Análisis de Componentes Principales es una técnica de reducción de dimensiones. Técnica clásica en la estadística y en el análisis supervisado. Se basa en maximizar la variancia creando nuevas variables que son combinaciones lineales de las anteriores.* 
+
+]
+
+.footnote[Machine Learning with R, the tidyvserse and mlr]
+
+---
+
+## PCA
+
+
+
+ 
+```{r echo=FALSE, out.width = '80%',  fig.align='center'}
+knitr::include_graphics("img/PC1-1.png")
+```
+
+
+---
+
+## PCA
+
+
+ 
+```{r echo=FALSE, out.width = '80%',  fig.align='center'}
+knitr::include_graphics("img/PC2-2.png")
+```
+
+
+---
+
+## PCA
+
+ 
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/PC3.png")
+```
+
+
+---
+
+## PCA
+
+```{r echo=FALSE, out.width = '80%',  fig.align='center'}
+knitr::include_graphics("img/PC4-4.png")
+```
+
+
+---
+
+
+## Clusterizado o clustering
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### 
+]
+
 
 
 ---
