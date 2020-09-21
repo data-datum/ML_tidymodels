@@ -129,6 +129,15 @@ trees_spec %>%
 
 ---
 
+# EJERCICIO DE TUNEO PARA ELLOS
+
+#TUNEO DE MIN_N
+#TUNEO DE C
+
+
+
+---
+
 ## Random Forest
 
 
@@ -140,6 +149,13 @@ p_recipe <- training(p_split) %>%
   step_scale(all_predictors(), -all_outcomes()) %>%
   prep()
 
+#AGREGAR CON JUICE LOS PRETRATAMIENTOS
+```
+
+---
+
+
+```{r}
 rf_spec <- rand_forest() %>% 
   set_engine("ranger") %>% 
   set_mode("classification")
@@ -205,6 +221,16 @@ rf4_spec %>%
                 resamples = p_folds) %>% 
   collect_metrics()
 ```
+
+---
+
+# ACA VAN A OPTIMIZAR ELLOS
+
+# MIN_N
+
+---
+
+# RESPUESTA
 
 ---
 
@@ -321,7 +347,7 @@ final_rf %>%
 ```
 
 ---
-# 
+## Gráfico 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 library(vip)
 set.seed(123)
@@ -333,3 +359,8 @@ final_rf %>%
 
 ```
 
+---
+
+# Ejercicio 
+
+#que obtengan el mismo grafico pero con arboles 

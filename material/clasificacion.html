@@ -120,8 +120,8 @@ vanilla_tree_spec %&gt;%
 ## # A tibble: 2 x 5
 ##   .metric  .estimator  mean     n std_err
 ##   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1 accuracy multiclass 0.933    10  0.0183
-## 2 roc_auc  hand_till  0.931    10  0.0175
+## 1 accuracy multiclass 0.940    10  0.0162
+## 2 roc_auc  hand_till  0.937    10  0.0240
 ```
 
 ---
@@ -144,13 +144,22 @@ trees_spec %&gt;%
 ## # A tibble: 2 x 5
 ##   .metric  .estimator  mean     n std_err
 ##   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1 accuracy multiclass 0.933    10  0.0183
-## 2 roc_auc  hand_till  0.931    10  0.0175
+## 1 accuracy multiclass 0.936    10  0.0161
+## 2 roc_auc  hand_till  0.937    10  0.0240
 ```
 
 ---
 
 # Testing set
+
+
+---
+
+# EJERCICIO DE TUNEO PARA ELLOS
+
+#TUNEO DE MIN_N
+#TUNEO DE C
+
 
 
 ---
@@ -167,6 +176,14 @@ p_recipe &lt;- training(p_split) %&gt;%
   step_scale(all_predictors(), -all_outcomes()) %&gt;%
   prep()
 
+#AGREGAR CON JUICE LOS PRETRATAMIENTOS
+```
+
+---
+
+
+
+```r
 rf_spec &lt;- rand_forest() %&gt;% 
   set_engine("ranger") %&gt;% 
   set_mode("classification")
@@ -183,8 +200,8 @@ rf_spec %&gt;%
 ## # A tibble: 2 x 5
 ##   .metric  .estimator  mean     n std_err
 ##   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1 accuracy multiclass 0.968    10 0.0116 
-## 2 roc_auc  hand_till  0.998    10 0.00181
+## 1 accuracy multiclass 0.972    10 0.00847
+## 2 roc_auc  hand_till  0.998    10 0.00219
 ```
 
 
@@ -210,8 +227,8 @@ rf2_spec %&gt;%
 ## # A tibble: 2 x 5
 ##   .metric  .estimator  mean     n std_err
 ##   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1 accuracy multiclass 0.968    10 0.0116 
-## 2 roc_auc  hand_till  0.998    10 0.00181
+## 1 accuracy multiclass 0.972    10 0.00847
+## 2 roc_auc  hand_till  0.998    10 0.00219
 ```
 
 
@@ -236,8 +253,8 @@ rf3_spec %&gt;%
 ## # A tibble: 2 x 5
 ##   .metric  .estimator  mean     n std_err
 ##   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1 accuracy multiclass 0.964    10 0.0111 
-## 2 roc_auc  hand_till  0.998    10 0.00133
+## 1 accuracy multiclass 0.964    10 0.0151 
+## 2 roc_auc  hand_till  0.997    10 0.00279
 ```
 
 
@@ -262,9 +279,19 @@ rf4_spec %&gt;%
 ## # A tibble: 2 x 5
 ##   .metric  .estimator  mean     n std_err
 ##   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1 accuracy multiclass 0.964    10 0.0111 
-## 2 roc_auc  hand_till  0.997    10 0.00181
+## 1 accuracy multiclass 0.964    10 0.0152 
+## 2 roc_auc  hand_till  0.997    10 0.00279
 ```
+
+---
+
+# ACA VAN A OPTIMIZAR ELLOS
+
+# MIN_N
+
+---
+
+# RESPUESTA
 
 ---
 
@@ -321,23 +348,23 @@ tune_res
 ## # A tibble: 10 x 4
 ##    splits           id     .metrics          .notes          
 ##    &lt;list&gt;           &lt;chr&gt;  &lt;list&gt;            &lt;list&gt;          
-##  1 &lt;split [223/27]&gt; Fold01 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
-##  2 &lt;split [225/25]&gt; Fold02 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
-##  3 &lt;split [225/25]&gt; Fold03 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
-##  4 &lt;split [225/25]&gt; Fold04 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
+##  1 &lt;split [224/26]&gt; Fold01 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
+##  2 &lt;split [224/26]&gt; Fold02 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
+##  3 &lt;split [224/26]&gt; Fold03 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
+##  4 &lt;split [224/26]&gt; Fold04 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
 ##  5 &lt;split [225/25]&gt; Fold05 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
 ##  6 &lt;split [225/25]&gt; Fold06 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
 ##  7 &lt;split [225/25]&gt; Fold07 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
 ##  8 &lt;split [225/25]&gt; Fold08 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
-##  9 &lt;split [226/24]&gt; Fold09 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
-## 10 &lt;split [226/24]&gt; Fold10 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
+##  9 &lt;split [227/23]&gt; Fold09 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
+## 10 &lt;split [227/23]&gt; Fold10 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 1]&gt;
 ```
 
 ---
 
 
 
-![](clasificacion_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](clasificacion_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 
 
@@ -390,14 +417,16 @@ final_res %&gt;%
 ## # A tibble: 2 x 3
 ##   .metric  .estimator .estimate
 ##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-## 1 accuracy multiclass     0.976
-## 2 roc_auc  hand_till      0.999
+## 1 accuracy multiclass         1
+## 2 roc_auc  hand_till          1
 ```
 
 
 ---
 
 ## Importancia de las variables
+
+### libreria vip
 
 
 ```r
@@ -411,8 +440,14 @@ final_rf %&gt;%
 ```
 
 ---
+## Gráfico 
+![](clasificacion_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 
-![](clasificacion_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+---
+
+# Ejercicio 
+
+#que obtengan el mismo grafico pero con arboles
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
