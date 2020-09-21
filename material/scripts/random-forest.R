@@ -18,12 +18,15 @@ so_folds <- vfold_cv(p_train, strata = species)
 
 set.seed(123)
 
+#especifico el modelo 
+set.seed(123)
 vanilla_tree_spec <-
   decision_tree() %>% 
   set_engine("rpart") %>% 
   set_mode("classification")
 
 #modelo vanilla sin tunning
+set.seed(123)
 vanilla_tree_spec %>% 
   fit_resamples(species ~ ., 
                 resamples = so_folds) %>% 
@@ -46,7 +49,7 @@ trees_spec %>%
                 resamples = so_folds) %>% 
   collect_metrics()
 
-
+--------------------------------------------#vainilla random forest-------------------------
 # random forest
 
 rf_spec <- rand_forest() %>% 
@@ -129,7 +132,7 @@ trees_folds <- vfold_cv(p_train, strata = species)
 
 doParallel::registerDoParallel()
 
-set.seed(345)
+set.seed(123)
 tune_res <- tune_grid(
   tune_wf,
   resamples = trees_folds,
@@ -185,6 +188,7 @@ final_res <- final_wf %>%
 final_res %>%
   collect_metrics()
 
+#hemos obtenido el 98% de accuracy en el test set
 --------------------------------#aca finaliza el modelo----------------------------------
 
 

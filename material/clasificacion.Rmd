@@ -50,9 +50,9 @@ xaringanExtra::use_tachyons()
 
 ---
 
-## Vamos a modelar las especies 
+## Vamos a modelar las especies `r emo::ji("penguin")`
 
-Ingreso los datos 
+### Ingreso los datos 
 ```{r message=FALSE, warning=FALSE}
 library(tidymodels) 
 library(palmerpenguins)
@@ -67,38 +67,52 @@ glimpse(penguins)
 
 ---
 
-# Vamos a dividir el set de datos 
+## Vamos a dividir el set de datos 
 
-```{r}
+```{r split, cache=TRUE}
 library(rsample)
 p_split <- penguins %>%
-  initial_split(prop=0.75)
+  `initial_split`(prop=0.75)
 
 p_train <- training(p_split)
 p_test  <- testing(p_split)
+p_split
 
 # para hacer validación cruzada
-p_folds <- vfold_cv(p_train, strata = species)
-
+p_folds <- `vfold_cv`(p_train, strata = species)
 ```
+
+
+Estos son los datos de entrenamiento/prueba/total 
+
+* __Vamos a _entrenar_ con 250 muestras__
+* __Vamos a _validar_ con 83 muestras__
+* __Datos totales: 333__
+
 
 ---
 
-```{r}
+## Árboles de decisión `r emo::ji("deciduous_tree")`
+
+__Vamos a utilizar el modelo por defecto__
+
+```{r trees,  cache=TRUE}
 #especifico el modelo 
 set.seed(123)
 vanilla_tree_spec <-
   decision_tree() %>% 
   set_engine("rpart") %>% 
   set_mode("classification")
-
 ```
+
 
 
 
 ---
 
-```{r}
+### Ajuste de la función de training
+
+```{r trees2,  cache=TRUE}
 #modelo vanilla sin tunning
 set.seed(123)
 vanilla_tree_spec %>% 
@@ -107,9 +121,13 @@ vanilla_tree_spec %>%
   collect_metrics()
 ```
 
+
+
 ---
 
-```{r}
+### Vamos a especificar 2 hiperparámatros 
+
+```{r cache=TRUE}
 set.seed(123)
 trees_spec <- decision_tree() %>% 
   set_engine("rpart") %>% 
@@ -124,24 +142,31 @@ trees_spec %>%
 
 ---
 
-# Testing set
+## Testing set  `r emo::ji("crystal_ball")`
 
+__Esta es la etapa conocida como predicción__ 
 
----
-
-# EJERCICIO DE TUNEO PARA ELLOS
-
-#TUNEO DE MIN_N
-#TUNEO DE C
 
 
 
 ---
 
-## Random Forest
+### Ejercicio 1 
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+#### Teniendo en cuenta el código de la página 6 realice tuneo de los siguientes hiperparámetros
+
+* min_n
+* cost_complexity
+]
 
 
-```{r}
+---
+
+# Random Forest `r emo::ji("deciduous_tree")` `r emo::ji("deciduous_tree")` `r emo::ji("deciduous_tree")` 
+
+
+```{r cache=TRUE}
 p_recipe <- training(p_split) %>%
   recipe(species~.) %>%
   step_corr(all_predictors()) %>%
@@ -155,7 +180,7 @@ p_recipe <- training(p_split) %>%
 ---
 
 
-```{r}
+```{r cache=TRUE}
 rf_spec <- rand_forest() %>% 
   set_engine("ranger") %>% 
   set_mode("classification")
@@ -172,9 +197,9 @@ rf_spec %>%
 
 ---
 
-## Random forest con mtr=2
+### Random Forest con mtr=2  `r emo::ji("wrench")`
 
-```{r}
+```{r cache=TRUE}
 rf2_spec <- rf_spec %>% 
   set_args(mtry = 2)
 
@@ -189,9 +214,9 @@ rf2_spec %>%
 
 ---
 
-# Random Forest con mtry= 3
+### Random Forest con mtry= 3  `r emo::ji("wrench")`
 
-```{r}
+```{r cache=TRUE}
 rf3_spec <- rf_spec %>% 
   set_args(mtry = 3)
 
@@ -207,9 +232,9 @@ rf3_spec %>%
 
 ---
 
-### Random Forest con mtry=4
+### Random Forest con mtry=4  `r emo::ji("wrench")`
 
-```{r}
+```{r cache=TRUE}
 
 rf4_spec <- rf_spec %>% 
   set_args(mtry = 4)
@@ -224,9 +249,14 @@ rf4_spec %>%
 
 ---
 
-# ACA VAN A OPTIMIZAR ELLOS
+### Ejercicio 2
 
-# MIN_N
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+#### Dejando fijo mtry=2, tunee el siguiente hiperparámetro
+
+* min_n
+]
+
 
 ---
 
@@ -234,9 +264,9 @@ rf4_spec %>%
 
 ---
 
-## Tuneo de hiperparámetros automático
+### Tuneo de hiperparámetros automático `r emo::ji("wrench")`
 
-```{r}
+```{r cache=TRUE}
 tune_spec <- rand_forest(
   mtry = tune(),
   trees = 1000,
@@ -249,7 +279,9 @@ tune_spec <- rand_forest(
 
 ---
 
-```{r}
+## Workflows
+
+```{r cache=TRUE}
 tune_wf <- workflow() %>%
   add_recipe(p_recipe) %>%
   add_model(tune_spec)
@@ -260,7 +292,9 @@ trees_folds <- vfold_cv(p_train, strata = species)
 
 ---
 
-```{r}
+### Paralelizamos los cálculos
+
+```{r cache=TRUE, message=FALSE}
 doParallel::registerDoParallel()
 
 set.seed(123)
@@ -275,9 +309,7 @@ tune_res
 
 ---
 
-
-
-```{r echo=FALSE}
+```{r echo=FALSE, cache=TRUE}
 tune_res %>%
   collect_metrics() %>%
   filter(.metric == "roc_auc") %>%
@@ -298,9 +330,11 @@ tune_res %>%
 
 ---
 
-# Elijo el mejor modelo
+## Elijo el mejor modelo  `r emo::ji("trophy")`
 
-```{r}
+* Con la función select_best
+
+```{r cache=TRUE}
 best_auc <- select_best(tune_res, "roc_auc")
 
 final_rf <- finalize_model(
@@ -315,7 +349,7 @@ final_rf
 
 ---
 
-```{r}
+```{r cache=TRUE}
 set.seed(123)
 final_wf <- workflow() %>%
   add_recipe(p_recipe) %>%
@@ -331,24 +365,11 @@ final_res %>%
 
 ---
 
-## Importancia de las variables
+### Importancia de las variables
 
-### libreria vip
+* libreria vip
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
-library(vip)
-set.seed(123)
-final_rf %>%
-  set_engine("ranger", importance = "permutation") %>%
-  fit(species ~ .,
-      data = juice(p_recipe)) %>%
-  vip(geom = "point")
-
-```
-
----
-## Gráfico 
-```{r message=FALSE, warning=FALSE, echo=FALSE}
+```{r message=FALSE, warning=FALSE, eval=FALSE, cache=TRUE}
 library(vip)
 set.seed(123)
 final_rf %>%
@@ -361,6 +382,25 @@ final_rf %>%
 
 ---
 
-# Ejercicio 
+### Gráfico 
+```{r message=FALSE, warning=FALSE, echo=FALSE, cache=TRUE}
+library(vip)
+set.seed(123)
+final_rf %>%
+  set_engine("ranger", importance = "permutation") %>%
+  fit(species ~ .,
+      data = juice(p_recipe)) %>%
+  vip(geom = "point")
 
-#que obtengan el mismo grafico pero con arboles 
+```
+
+---
+
+## Ejercicio 3
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+#### Realice un gráfico de importancia de variables con el modelo de árboles de decisión
+
+
+]
+
