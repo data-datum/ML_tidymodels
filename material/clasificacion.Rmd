@@ -13,6 +13,17 @@ background-image: url(img/portada.png)
 background-size: cover
 class: animated slideInRight fadeOutLeft, middle
 
+```{r xaringan-extra-styles, include=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+
+
+```{r include=FALSE}
+library(countdown)
+```
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -39,14 +50,14 @@ xaringanExtra::use_logo("img/logo-tidymodels.png")
 
 ```{r xaringan-tachyons, echo=FALSE}
 xaringanExtra::use_tachyons()
+xaringanExtra::use_fit_screen()
 ```
 
 
-# Introducción a Machine Learning con Tidymodels 
+# Modelos de Clasificación 
 
 
 ### 1º Congreso Latinoamericano de Mujeres en Bioinformática y Ciencia de Datos
-
 
 ---
 
@@ -91,6 +102,8 @@ Estos son los datos de entrenamiento/prueba/total
 
 
 ---
+background-image: url(img/dt-fondo.png)
+background-size: cover
 
 ## Árboles de decisión `r emo::ji("deciduous_tree")`
 
@@ -110,6 +123,9 @@ vanilla_tree_spec <-
 
 ---
 
+background-image: url(img/dt-fondo.png)
+background-size: cover
+
 ### Ajuste de la función de training
 
 ```{r trees2,  cache=TRUE}
@@ -124,6 +140,9 @@ vanilla_tree_spec %>%
 
 
 ---
+
+background-image: url(img/dt-fondo.png)
+background-size: cover
 
 ### Vamos a especificar 2 hiperparámatros 
 
@@ -142,6 +161,9 @@ trees_spec %>%
 
 ---
 
+background-image: url(img/dt-fondo.png)
+background-size: cover
+
 ## Testing set  `r emo::ji("crystal_ball")`
 
 __Esta es la etapa conocida como predicción__ 
@@ -150,6 +172,10 @@ __Esta es la etapa conocida como predicción__
 
 
 ---
+
+background-image: url(img/dt-fondo.png)
+background-size: cover
+
 
 ### Ejercicio 1 
 
@@ -160,10 +186,15 @@ __Esta es la etapa conocida como predicción__
 * cost_complexity
 ]
 
+`r countdown(minutes = 5, seconds = 00)`
+
 
 ---
 
-# Random Forest `r emo::ji("deciduous_tree")` `r emo::ji("deciduous_tree")` `r emo::ji("deciduous_tree")` 
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+# Random Forest 
 
 
 ```{r cache=TRUE}
@@ -179,6 +210,8 @@ p_recipe <- training(p_split) %>%
 
 ---
 
+background-image: url(img/rf-fondo.png)
+background-size: cover
 
 ```{r cache=TRUE}
 rf_spec <- rand_forest() %>% 
@@ -196,6 +229,8 @@ rf_spec %>%
 
 
 ---
+background-image: url(img/rf-fondo.png)
+background-size: cover
 
 ### Random Forest con mtr=2  `r emo::ji("wrench")`
 
@@ -213,6 +248,8 @@ rf2_spec %>%
 
 
 ---
+background-image: url(img/rf-fondo.png)
+background-size: cover
 
 ### Random Forest con mtry= 3  `r emo::ji("wrench")`
 
@@ -232,6 +269,9 @@ rf3_spec %>%
 
 ---
 
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 ### Random Forest con mtry=4  `r emo::ji("wrench")`
 
 ```{r cache=TRUE}
@@ -249,6 +289,9 @@ rf4_spec %>%
 
 ---
 
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 ### Ejercicio 2
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
@@ -257,12 +300,16 @@ rf4_spec %>%
 * min_n
 ]
 
+`r countdown(minutes = 3, seconds = 00)`
 
 ---
 
 # RESPUESTA
 
 ---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 
 ### Tuneo de hiperparámetros automático `r emo::ji("wrench")`
 
@@ -278,6 +325,9 @@ tune_spec <- rand_forest(
 ```
 
 ---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 
 ## Workflows
 
@@ -309,6 +359,9 @@ tune_res
 
 ---
 
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 ```{r echo=FALSE, cache=TRUE}
 tune_res %>%
   collect_metrics() %>%
@@ -329,8 +382,10 @@ tune_res %>%
 
 
 ---
+background-image: url(img/rf-fondo.png)
+background-size: cover
 
-## Elijo el mejor modelo  `r emo::ji("trophy")`
+## Elijo el mejor modelo `r emo::ji("trophy")`
 
 * Con la función select_best
 
@@ -349,6 +404,9 @@ final_rf
 
 ---
 
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 ```{r cache=TRUE}
 set.seed(123)
 final_wf <- workflow() %>%
@@ -364,6 +422,8 @@ final_res %>%
 
 
 ---
+background-image: url(img/rf-fondo.png)
+background-size: cover
 
 ### Importancia de las variables
 
@@ -382,6 +442,9 @@ final_rf %>%
 
 ---
 
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 ### Gráfico 
 ```{r message=FALSE, warning=FALSE, echo=FALSE, cache=TRUE}
 library(vip)
@@ -396,11 +459,14 @@ final_rf %>%
 
 ---
 
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
 ## Ejercicio 3
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
 #### Realice un gráfico de importancia de variables con el modelo de árboles de decisión
 
-
 ]
 
+`r countdown(minutes = 5, seconds = 00)`

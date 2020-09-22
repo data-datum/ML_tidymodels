@@ -14,6 +14,7 @@ background-size: cover
 class: animated slideInRight fadeOutLeft, middle
 
 
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
@@ -30,19 +31,31 @@ style_duo_accent(
 ```{r , message=FALSE, warning=FALSE, include=FALSE} 
 library(fontawesome)
 library(emo)
+library(htmltools)
 ```
 
+```{r xaringan-extra-styles, include=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+
+
+
 ```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_fit_screen()
 xaringanExtra::use_logo("img/logo-tidymodels.png")
 ```
 
 
 ```{r xaringan-tachyons, echo=FALSE}
 xaringanExtra::use_tachyons()
+xaringanExtra::use_panelset()
 ```
 
 
-# Introducción a Machine Learning con Tidymodels 
+# Introducción a Machine Learning con `tidymodels`
 
 
 ### 1º Congreso Latinoamericano de Mujeres en Bioinformática y Ciencia de Datos
@@ -50,6 +63,9 @@ xaringanExtra::use_tachyons()
 
 
 ---
+
+background-image: url(img/equipo-fondo.png)
+background-size: cover
 
 ## Equipo 
 
@@ -60,6 +76,8 @@ knitr::include_graphics("img/equipo.png")
 
 ---
 
+background-image: url(img/material.png)
+background-size: cover
 
 ## Material de este tutorial 
 <br><br>
@@ -71,7 +89,11 @@ knitr::include_graphics("img/equipo.png")
 
 ---
 
-## Cronograma
+background-image: url(img/cronograma.png)
+background-size: cover 
+
+
+## Cronograma 
 
 
 
@@ -91,7 +113,8 @@ knitr::include_graphics("img/equipo.png")
 .footnote[<sup>*</sup> Applied Predictive Modeling]
 ---
 
-## ¿Qué es el aprendizaje automático? 
+
+## Aprendizaje Automático `r emo::ji("robot")`
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
 ### El aprendizaje automático (ML)-también llamado aprendizaje estadístico- es un subcampo dentro de la inteligencia artificial (IA) donde *los algoritmos "aprenden" patrones en los datos para realizar una tarea específica.* 
@@ -100,7 +123,7 @@ knitr::include_graphics("img/equipo.png")
 
 ---
 
-## Conceptos Importantes
+## Conceptos Importantes `r emo::ji("bulb")`
 
 * __Muestra, punto, observación, instancia__ se refiere a una unidad de análisis.
 <br>
@@ -175,7 +198,7 @@ knitr::include_graphics("img/gans.png")
 
 ---
 
-### Otros hitos en el campo de la IA
+### Otros hitos en el campo de la IA `r emo::ji("brain")`
 
         
 ```{r echo=FALSE, out.width = '100%',  fig.align='center'}
@@ -222,7 +245,7 @@ knitr::include_graphics("img/bias-variance.png")
 
 ---
 
-# Exploración de datos
+# Exploración de datos `r emo::ji("mag_right")`
 
 
 
@@ -347,6 +370,51 @@ knitr::include_graphics("img/decision1.png")
 .footnote[https://bookdown.org/content/2031/arboles-de-decision-parte-i.html#que-son-los-arboles-de-decision]
 ---
 
+## Hiperparámetro
+
+
+---
+
+## Hiperparámetros de 
+## árboles de decisión
+
+.panelset[
+.panel[.panel-name[min_n]
+
+Set minimum n to split at any node.
+
+Another early stopping method. Used to prevent overfitting.
+]
+
+.panel[.panel-name[cost_complexity]
+
+Adds a cost or penalty to error rates of more complex trees.
+
+A way to prune a tree. Used to prevent overfitting.
+
+]
+
+.panel[.panel-name[number of trees]
+
+Adds a cost or penalty to error rates of more complex trees.
+
+A way to prune a tree. Used to prevent overfitting.
+
+]
+
+.panel[.panel-name[tree_depth]
+
+Adds a cost or penalty to error rates of more complex trees.
+
+A way to prune a tree. Used to prevent overfitting.
+
+]
+
+
+]
+
+---
+
 # Random Forest
 
  
@@ -400,8 +468,7 @@ knitr::include_graphics("img/random-forest5.png")
 
 
 ---
-# Métricas
-
+# Métricas `r emo::ji("triangular_ruler")`
 
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
@@ -484,7 +551,7 @@ knitr::include_graphics("img/matriz-confusion.png")
 
 ## Principios del aprendizaje
 
-### 1. Navaja de Occam
+### 1. Navaja de Occam `r emo::ji("hocho")`
 
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
@@ -518,7 +585,7 @@ knitr::include_graphics("img/matriz-confusion.png")
 
 ## Principios del aprendizaje
 
-### 3. Data snooping
+### 3. Data snooping  `r emo::ji("eyes")`
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
 
@@ -565,6 +632,8 @@ knitr::include_graphics("img/PC1-1.png")
 ```
 
 
+.footnote[Machine Learning with R, the tidyvserse and mlr]
+
 ---
 
 ## PCA
@@ -575,6 +644,7 @@ knitr::include_graphics("img/PC1-1.png")
 knitr::include_graphics("img/PC2-2.png")
 ```
 
+.footnote[Machine Learning with R, the tidyvserse and mlr]
 
 ---
 
@@ -585,6 +655,7 @@ knitr::include_graphics("img/PC2-2.png")
 knitr::include_graphics("img/PC3.png")
 ```
 
+.footnote[Machine Learning with R, the tidyvserse and mlr]
 
 ---
 
@@ -594,6 +665,7 @@ knitr::include_graphics("img/PC3.png")
 knitr::include_graphics("img/PC4-4.png")
 ```
 
+.footnote[Machine Learning with R, the tidyvserse and mlr]
 
 ---
 
@@ -608,7 +680,162 @@ knitr::include_graphics("img/PC4-4.png")
 
 
 ---
-## De caret a tidymodels
+
+### Clusterizado KMeans
+
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_1.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+---
+
+### Clusterizado KMeans
+
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_2.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+---
+
+### Clusterizado KMeans
+
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_3.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+---
+
+### Clusterizado KMeans
+
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_4.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+---
+### Clusterizado KMeans
+
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_5.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+---
+
+### Clusterizado KMeans
+
+
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_6.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+---
+
+### Clusterizado KMeans
+
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_7.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+---
+
+### Clusterizado KMeans
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_8.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+---
+
+
+### Clusterizado KMeans
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_9.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+
+
+---
+
+### Clusterizado KMeans
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_10.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+
+---
+
+
+### Clusterizado KMeans
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_11.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+
+---
+
+
+### Clusterizado KMeans
+  
+```{r echo=FALSE, out.width = '100%',  fig.align='center'}
+knitr::include_graphics("img/kmeans_12.jpg")
+```
+
+
+.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
+
+
+
+
+
+---
+## De caret a `tidymodels`
 
 
 
@@ -627,11 +854,11 @@ El objetivo de Tidymodels es además hacerlo **en un formato ordenado**.
 
 
 ---
-## Tidymodels
+## `tidymodels`
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
 
-### Tidymodels es un grupo de paquetes centrado en las tareas de modelización de datos. 
+### `tidymodels` es un grupo de paquetes centrado en las tareas de modelización de datos. 
 ### La modelización consta de varios pasos, la idea es que cada paso lo realice una librería diferente. 
 ]
 
@@ -654,7 +881,7 @@ knitr::include_graphics("img/modeling.png")
 
 ---
 
-## Modelado y tidymodels
+## Modelado y `tidymodels`
 
 
 ```{r echo=FALSE, out.width = '100%',  fig.align='center'}
@@ -662,14 +889,139 @@ knitr::include_graphics("img/tidy-w.png")
 ```
 
 ---
-class: inverse, center
 
-# Datos 
+## Librerías de `tidymodels`
+
+
+.left-column[
+### `library(rsample)`
+__Librería que nos permite hacer división del set de datos__
+
+]
+
+.right-column[
+
+```{r echo=FALSE, out.width = '40%',  fig.align='center'}
+knitr::include_graphics("img/rsample.png")
+```
+
+]
+
+
+
 
 
 ---
 
-## Datos: Palmer Penguins
+## Librerías de `tidymodels`
+
+.left-column[
+#### `library(rsample)`
+### `library(recipes)`
+__Permite hacer preprocesamiento de los datos__
+]
+
+.right-column[
+
+```{r echo=FALSE, out.width = '40%',  fig.align='center'}
+knitr::include_graphics("img/recipes.png")
+```
+
+
+]
+
+---
+## Librerías de `tidymodels`
+
+.left-column[
+#### `library(rsample)`
+#### `library(recipes)`
+### `library(parsnip)`
+__Permite unificar los modelos a optimizar__
+]
+
+.right-column[
+
+```{r echo=FALSE, out.width = '40%',  fig.align='center'}
+knitr::include_graphics("img/parsnip.png")
+```
+
+
+]
+
+
+---
+## Librerías de `tidymodels`
+
+.left-column[
+#### `library(rsample)`
+#### `library(recipes)`
+#### `library(parsnip)`
+### `library(workflows)`
+]
+
+.right-column[
+
+```{r echo=FALSE, out.width = '40%',  fig.align='center'}
+knitr::include_graphics("img/workflow.png")
+```
+
+
+]
+
+
+---
+## Librerías de `tidymodels`
+
+.left-column[
+#### `library(rsample)`
+#### `library(recipes)`
+#### `library(parsnip)`
+#### `library(workflows)`
+### `library(tune)`
+__Permite el tuneo de los hiperparámetros de los modelos__
+]
+
+.right-column[
+
+```{r echo=FALSE, out.width = '40%',  fig.align='center'}
+knitr::include_graphics("img/tune.png")
+```
+
+
+]
+
+
+
+---
+
+## Librerías de `tidymodels`
+
+.left-column[
+#### `library(rsample)`
+#### `library(recipes)`
+#### `library(parsnip)`
+#### `library(workflows)`
+#### `library(tune)`
+### `library(yardstick)`
+__Permite evaluar las métricas de los modelos__
+]
+
+.right-column[
+
+```{r echo=FALSE, out.width = '40%',  fig.align='center'}
+knitr::include_graphics("img/yardstick.png")
+```
+
+
+]
+
+
+
+
+---
+
+## Datos: Palmer Penguins `r emo::ji("penguin")`
 
 
 ```{r eval=FALSE}
@@ -700,14 +1052,18 @@ knitr::include_graphics("img/pico.png")
 
 ---
 
-## Exploración de datos
+## Exploración de datos 
 
 ```{r message=FALSE}
 library(palmerpenguins)
 library(dplyr)
-glimpse(penguins)
 ```
-  
+
+```{r echo=FALSE}
+library(DT)
+datatable(penguins, options = list(pageLength = 5))
+```
+
 ---
 
 
@@ -739,85 +1095,16 @@ penguins %>%
   summarize(across(where(is.numeric), mean, na.rm = TRUE))
 ```
 
+
 ---
 
-## Valores perdidos
-
-## Imputar valores perdidos
-
-## Centrado y escalado
-
-
-## 
----
-
-background-image: url(img/penguin1.jpg)
+background-image: url(img/biblio.png)
 background-size: cover
-class: inverse, animated slideInRight fadeOutLeft, middle
 
-
-# Aprendizaje 
-# Supervisado
-
-
-
----
-#  Arboles de decisión
-
-
-
-
----
-
-
-# Random Forest
-
-
-
-
----
-
-
-background-image: url(img/penguin3.jpg)
-background-size: cover
-class: inverse, animated slideInRight fadeOutLeft, middle
-
-
-# Análisis 
-# No Supervisado 
-
----
-
-# Análisis de Componentes Principales
-
-
----
-
-# UMAP
-
-
----
-
-# K-Means
-
-
----
-
-
-
----
-
-background-image: url(img/penguin4.jpg)
-background-size: cover
-class: inverse, animated slideInRight fadeOutLeft, middle
-
-
-# Muchas 
-# Gracias
-
----
 
 # Bibliografía
+
+
 
 ---
 
