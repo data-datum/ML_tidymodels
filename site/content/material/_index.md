@@ -9,8 +9,8 @@ title: Material del Workshop
 
 ## Slides
 
-### [Presentación](slides/00-presentacion.html)
+### [Presentación](https://ml-tidy-wibds.netlify.app/slides/00-presentacion.html#1)
 
 
-### [Clasificación](slides/clasificacion.html)
+### [Clasificación](https://ml-tidy-wibds.netlify.app/slides/clasificacion.html#1)
 
