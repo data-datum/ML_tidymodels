@@ -11,7 +11,7 @@ title: Material del Workshop
 
 ### [Presentación](https://ml-tidy-wibds.netlify.app/slides/00-presentacion.html#1)
 
-### [Análisis Exploratorio de Datos]
+### [Análisis Exploratorio de Datos](https://ml-tidy-wibds.netlify.app/slides/eda.html#1)
 
 ### [Clasificación](https://ml-tidy-wibds.netlify.app/slides/clasificacion.html#1)
 
