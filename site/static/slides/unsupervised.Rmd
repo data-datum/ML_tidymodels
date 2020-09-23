@@ -67,6 +67,9 @@ xaringanExtra::use_panelset()
 
 
 ---
+background-image: url(img/penguin-fondo.png)
+background-size: cover
+
 
 ## Análisis de Componentes Principales
 
@@ -85,6 +88,9 @@ library(recipes)
 .footnote[https://juliasilge.com/blog/cocktail-recipes-umap/]
 ---
 
+background-image: url(img/penguin-fondo.png)
+background-size: cover
+
 ```{r}
 pca_rec <- recipe(~., data = penguins) %>%
   update_role(species, new_role = "id") %>%
@@ -100,6 +106,8 @@ pca_prep
 
 
 ---
+background-image: url(img/penguin-fondo.png)
+background-size: cover
 
 
 ```{r cache=TRUE, fig.height=5, fig.width=9}
@@ -112,6 +120,9 @@ juice(pca_prep) %>%
 
 
 ---
+
+background-image: url(img/penguin-fondo.png)
+background-size: cover
 
 ```{r eval=FALSE}
 tidied_pca <- tidy(pca_prep, 2)
@@ -127,6 +138,9 @@ tidied_pca %>%
 ```
 
 ---
+background-image: url(img/penguin-fondo.png)
+background-size: cover 
+
 
 ```{r fig.width=10, echo=FALSE, message=FALSE, warning=FALSE}
 tidied_pca <- tidy(pca_prep, 2)
@@ -143,6 +157,8 @@ tidied_pca %>%
 
 
 ---
+background-image: url(img/penguin-fondo.png)
+background-size: cover
 
 # Ejercicio
 
