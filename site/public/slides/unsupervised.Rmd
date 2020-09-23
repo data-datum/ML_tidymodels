@@ -156,3 +156,5 @@ tidied_pca %>%
 
 ---
 
+background-image: url(img/.png)
+background-size: cover

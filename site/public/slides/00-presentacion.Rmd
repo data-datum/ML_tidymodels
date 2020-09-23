@@ -553,10 +553,6 @@ knitr::include_graphics("img/matriz-confusion.png")
 .footnote[Traducido de 10.7717/peerj.5666/fig-2]
 
 
----
-
-## Métricas de Regresión
-
 
 
 ---
@@ -1032,85 +1028,6 @@ knitr::include_graphics("img/yardstick.png")
 
 
 ]
-
-
-
-
----
-
-## Datos: Palmer Penguins `r emo::ji("penguin")`
-
-
-```{r eval=FALSE}
-install.packages("palmerpenguins") #ya disponible en CRAN
-```
-
-
-
-
-```{r echo=FALSE, out.width = '65%',  fig.align='center'}
-knitr::include_graphics("img/penguins.png")
-```
-
-
-```{r echo=FALSE, out.width = '35%',  fig.align='right'}
-knitr::include_graphics("img/pico.png")
-```
-
-
-
-
-
-
-.footnote[<sup>*</sup> https://github.com/allisonhorst/palmerpenguins]
-
-
-
-
----
-
-## Exploración de datos 
-
-```{r message=FALSE}
-library(palmerpenguins)
-library(dplyr)
-```
-
-```{r echo=FALSE}
-library(DT)
-datatable(penguins, options = list(pageLength = 5))
-```
-
----
-
-
-background-image: url(img/penguin2.jpg)
-background-size: cover
-class: inverse, animated slideInRight fadeOutLeft, middle
-
-
-# Análisis Exploratorio
-
----
-
-## Datos balanceados o desbalanceados
-
-Veamos si las clases están balanceadas
-```{r}
-penguins %>%
-  count(species)
-```
-
-**Las clases no están balanceadas**
-
-Es importante saber si un set de datos está balanceado o desbalanceado, ya que eso introduce un **sesgo en los algoritmos**. 
-
----
-```{r}
-penguins %>%
-  group_by(species) %>%
-  summarize(across(where(is.numeric), mean, na.rm = TRUE))
-```
 
 
 ---
