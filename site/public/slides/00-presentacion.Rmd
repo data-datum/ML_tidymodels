@@ -43,6 +43,11 @@ xaringanExtra::use_extra_styles(
 
 
 
+```{r include=FALSE}
+library(countdown)
+```
+
+
 ```{r xaringan-logo, echo=FALSE}
 xaringanExtra::use_fit_screen()
 xaringanExtra::use_logo("img/logo-tidymodels.png")
@@ -476,7 +481,13 @@ knitr::include_graphics("img/random-forest5.png")
 ### Hiperparámetros de 
 ### random forest
 
+### mtry
+* El número de predictores a muestrearse en cada split de árbol
 
+--
+
+### min_n
+* el número de observaciones necesarias para seguir dividiendo nodos
 
 
 ---
@@ -1039,6 +1050,32 @@ background-size: cover
 # Bibliografía
 
 
+#### Max Kuhn & Julia Silge - [Tidy Modeling (en desarrollo)](https://www.tmwr.org/)
+
+#### Julia Silge's [Personal Blog](https://juliasilge.com/blog/)
+
+#### Max Kuhn & Kjell Johnson - [Feature engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/)
+
+#### Max Kuhn & Kjell Johnson - Applied Predictive Modeling
+
+#### Documentación de [`tidymodels`](https://www.tidymodels.org/)
+
 
 ---
 
+background-image: url(img/final-fondo.png)
+background-size: cover
+class: middle
+
+# Muchas gracias `r emo::ji("party")`
+
+
+---
+
+background-image: url(img/final-fondo.png)
+background-size: cover
+class: middle
+
+# Recreo `r emo::ji("tea")`
+
+`r countdown(minutes = 15, seconds = 00)`
