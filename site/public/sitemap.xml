@@ -3,6 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/material/00-presentacion/</loc>
+  </url>
+  
+  <url>
+    <loc>/material/02-clasificacion/</loc>
+  </url>
+  
+  <url>
     <loc>/people/</loc>
     <lastmod>2020-08-07T00:00:00+00:00</lastmod>
   </url>
