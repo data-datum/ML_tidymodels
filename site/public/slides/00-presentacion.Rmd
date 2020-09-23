@@ -373,6 +373,7 @@ knitr::include_graphics("img/decision1.png")
 ## Hiperparámetro
 
 
+
 ---
 
 ## Hiperparámetros de 
@@ -383,24 +384,19 @@ knitr::include_graphics("img/decision1.png")
 
 Set minimum n to split at any node.
 
-Another early stopping method. Used to prevent overfitting.
+Utilizado para prevenir overfitting.
 ]
 
 .panel[.panel-name[cost_complexity]
 
-Adds a cost or penalty to error rates of more complex trees.
+Agrega un costo o penalización a los errores de árboles más complejos. 
 
-A way to prune a tree. Used to prevent overfitting.
+Es una forma de poda. Utilizado para evitar el sobreajuste (overfitting).
 
-]
-
-.panel[.panel-name[number of trees]
-
-Adds a cost or penalty to error rates of more complex trees.
-
-A way to prune a tree. Used to prevent overfitting.
 
 ]
+
+
 
 .panel[.panel-name[tree_depth]
 
@@ -465,6 +461,14 @@ knitr::include_graphics("img/random-forest5.png")
 ```
 
 .footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
+
+
+---
+
+### Hiperparámetros de 
+### random forest
+
+
 
 
 ---
@@ -958,6 +962,8 @@ knitr::include_graphics("img/parsnip.png")
 #### `library(recipes)`
 #### `library(parsnip)`
 ### `library(workflows)`
+__Nos permite unificar el flujo de trabajo__
+
 ]
 
 .right-column[

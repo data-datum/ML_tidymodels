@@ -373,6 +373,13 @@ knitr::include_graphics("img/decision1.png")
 ## Hiperparámetro
 
 
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### Un hiperparámetro es una propiedad de un algoritmo de aprendizaje. Este valor influencia la forma en que trabaja el algoritmo. Estos valores no son aprendidos por el algoritmo desde los datos. Deben ser seteados antes de correr el algoritmo por el analista. 
+]
+
+
+.footnote[The Hundred-page machine learning book. Andriy Burkov]
 ---
 
 ## Hiperparámetros de 
@@ -381,32 +388,29 @@ knitr::include_graphics("img/decision1.png")
 .panelset[
 .panel[.panel-name[min_n]
 
-Set minimum n to split at any node.
+Establezca n mínimo para dividir en cualquier nodo.
 
-Another early stopping method. Used to prevent overfitting.
+Es un método de parada temprana. Se utiliza para evitar el sobreajuste.
+
+]
+
+
+
+
+.panel[.panel-name[tree_depth]
+
+Pone un límite a la profundidad máxima del árbol.
+
+Un método para detener el algoritmo. Se utiliza para evitar el sobreajuste.
+
 ]
 
 .panel[.panel-name[cost_complexity]
 
-Adds a cost or penalty to error rates of more complex trees.
+Agrega un costo o penalización a los errores de árboles más complejos. 
 
-A way to prune a tree. Used to prevent overfitting.
+Es una forma de poda. Utilizado para evitar el sobreajuste (overfitting).
 
-]
-
-.panel[.panel-name[number of trees]
-
-Adds a cost or penalty to error rates of more complex trees.
-
-A way to prune a tree. Used to prevent overfitting.
-
-]
-
-.panel[.panel-name[tree_depth]
-
-Adds a cost or penalty to error rates of more complex trees.
-
-A way to prune a tree. Used to prevent overfitting.
 
 ]
 
@@ -465,6 +469,14 @@ knitr::include_graphics("img/random-forest5.png")
 ```
 
 .footnote[Imagen tomada de https://conf20-intro-ml.netlify.com/]
+
+
+---
+
+### Hiperparámetros de 
+### random forest
+
+
 
 
 ---
@@ -674,10 +686,13 @@ knitr::include_graphics("img/PC4-4.png")
 
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
-### 
+### Clusterizado se utiliza para identificar grupos 'clusters' en un set de datos.
+### Un clúster es un grupo de casos que son más similares entre sí que entre los demás. 
+### Similar a la clasificación, pero no contamos con información previa sobre a qué grupo pertenece cada individuo. 
 ]
 
 
+.footnote[Machine Learning with R, the tidyvserse and mlr]
 
 ---
 
@@ -958,6 +973,8 @@ knitr::include_graphics("img/parsnip.png")
 #### `library(recipes)`
 #### `library(parsnip)`
 ### `library(workflows)`
+__Nos permite unificar el flujo de trabajo__
+
 ]
 
 .right-column[
@@ -1108,14 +1125,3 @@ background-size: cover
 
 ---
 
-# Imágenes utilizadas (Unsplash)
-
-## Portada: https://unsplash.com/photos/WkfDrhxDMC8 
-
-## Conceptos: https://unsplash.com/photos/7lzIyp2Ork4 
-
-https://unsplash.com/photos/3dDa9p4FU9U 
-
-https://unsplash.com/photos/8fmTByMm8wE 
-
-https://unsplash.com/photos/RmOi5f7HfeE 
