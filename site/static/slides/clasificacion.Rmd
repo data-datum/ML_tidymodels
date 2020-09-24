@@ -8,7 +8,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
+  
 background-image: url(img/portada.png)
 background-size: cover
 class: animated slideInRight fadeOutLeft, middle
@@ -441,7 +441,10 @@ knitr::include_graphics("img/yardstick.png")
 
 ---
 
-class: inverse
+background-image: url(img/portada.png)
+background-size: cover
+class: animated slideInRight fadeOutLeft, middle
+
 
 # Random Forest
 
