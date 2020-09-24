@@ -68,14 +68,11 @@ rf_spec %>%
 
 rf3_spec <- rf_spec %>% 
   set_args(mtry = 3)
-
 set.seed(123)
-
 rf3_spec %>% 
   fit_resamples(species ~ ., 
                 resamples = so_folds) %>% 
   collect_metrics()
-
 
 
 # con mtry = 2
@@ -103,6 +100,9 @@ rf4_spec %>%
   fit_resamples(species ~ ., 
                 resamples = so_folds) %>% 
   collect_metrics()
+
+----------------------------------#ejercicio para ellos----------------------------------
+
 
 ----------------------------------#random forest tuneo automatico-------------------------
 
@@ -176,7 +176,7 @@ final_rf %>%
   fit(species ~ .,
       data = juice(p_recipe)) %>%
   vip(geom = "point")
-
+    
 
 final_wf <- workflow() %>%
   add_recipe(p_recipe) %>%
@@ -191,77 +191,42 @@ final_res %>%
 #hemos obtenido el 98% de accuracy en el test set
 --------------------------------#aca finaliza el modelo----------------------------------
 
-
-
-#tuneando con un grid
-rf_grid <- grid_regular(
-  mtry(range = c(10, 20)),
-  min_n(range = c(1, 4)),
-  levels = 2
-)
-
-rf_grid
-
-
+----------------------------#decision trees--------------------------------------------
 set.seed(123)
-regular_res <- tune_grid(
-  tune_wf,
-  resamples = trees_folds,
-  grid = rf_grid
-)
+trees_0_5 <- decision_tree() %>% 
+  set_engine("rpart") %>% 
+  set_mode("classification") %>% 
+  set_args(min_n = 5, cost_complexity = 0)
 
-regular_res
+trees_20_1 %>%
+  fit_resamples(species ~ ., 
+                resamples = so_folds) %>% 
+  collect_metrics()
 
+--------------------------#testeo------------------------------------------------------
+#copiar el workflow
 
-
-regular_res %>%
-  collect_metrics() %>%
-  filter(.metric == "roc_auc") %>%
-  mutate(min_n = factor(min_n)) %>%
-  ggplot(aes(mtry, mean, color = min_n)) +
-  geom_line(alpha = 0.5, size = 1.5) +
-  geom_point() +
-  labs(y = "AUC")
-
-
-#veamos cuantas muestras quedan en cada grupo
-p_split  
-
-
-# preprocesamiento
-
-p_recipe <- training(p_split) %>%
+recipe_dt <- training(p_split) %>%
   recipe(species~.) %>%
   step_corr(all_predictors()) %>%
   step_center(all_predictors(), -all_outcomes()) %>%
   step_scale(all_predictors(), -all_outcomes()) %>%
   prep()
+recipe_dt
 
-#modelo
-decision_tree() %>% 
-  set_engine("rpart") %>% 
-  set_mode("classification")%>%
-  set_args(tree_depth = 30, min_n = 20, cost_complexity = .01)
+tree_wf_0_5 <- workflow() %>%
+  add_recipe(recipe_dt) %>%
+  add_model(trees_0_5)
+tree_wf_0_5
 
-# es lo mismo que escribir 
-decision_tree(tree_depth = 30, min_n = 20, cost_complexity = .01) %>% 
-  set_engine("rpart") %>% 
-  set_mode("classification")
-
-
-#workflows
-
-p_wf <- workflow() %>% 
-  add_model(decision_tree) %>% 
-  add_recipe(p_recipe)
-
-p_wf%>%
-  fit_split(split = p_train) %>% 
+set.seed(123)
+final_fit_dt <- last_fit(
+  tree_wf_0_5,
+  split = p_split
+)
+final_fit_dt %>%
   collect_metrics()
 
-
-
-#p_train <- juice(p_recipe)
-
-#p_test <- p_recipe %>%
-#bake(testing(p_split))
+final_fit_dt %>%
+  collect_predictions() %>%
+  conf_mat(species, .pred_class)  
