@@ -382,7 +382,8 @@ peso_pred_rf  <- rf_fit %>%
 rmse(peso_pred_rf, truth = verdadero,estimate=.pred)
 ```
 ---
-## Comparando desempeño en el conjunto de entrenamiento
+## Comparando desempeño 
+en el conjunto de entrenamiento
 
 ```{r}
 results_train <- lm_fit_all %>%
