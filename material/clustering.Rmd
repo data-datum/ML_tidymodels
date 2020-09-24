@@ -69,11 +69,7 @@ al análisis estadístico, y especialmente para la distinción entre estas funci
 * tidy()
 * augment()
 * glance()
----
-# Ejemplo de K-means tomado del blog de tidymodels.org
 
-El origen del siguiente código fue extraído de este 
-enlace https://www.tidymodels.org/learn/statistics/k-means/
 ---
 ## Creación dataset ejemplo
 
@@ -86,6 +82,11 @@ centers <- tibble(
   x1 = c(5, 0, -3),              # x1 coordinate of cluster center
   x2 = c(-1, 1, -2)              # x2 coordinate of cluster center
 )
+
+```
+---
+## Dataset de puntos
+```{r}
 labelled_points <- 
   centers %>%
   mutate(
@@ -95,6 +96,11 @@ labelled_points <-
   select(-num_points) %>% 
   unnest(cols = c(x1, x2))
 
+```
+--- 
+## Grafico dataset labelled_points
+
+```{r}
 ggplot(labelled_points, aes(x1, x2, color = cluster)) +
   geom_point(alpha = 0.3)
 ```
@@ -121,9 +127,8 @@ summary(kclust)
 ---
 ## augment()
 
-Ahora a cada datapoint del cluster le agregamos la clasificacion original del dataset
-
-Función augment.kmeans del paquete broom
+* A cada datapoint del cluster le agregamos la clasificacion original del dataset
+* Función augment.kmeans del paquete broom
 
 ```{r}
 augment(kclust, points)
@@ -149,13 +154,13 @@ glance(kclust)
 ---
 ## Realizar clustering exploratorio
 
-Lo siguiente es para visualizar como cambia la asignacion
+Lo siguiente es para visualizar como cambia la asignación
 de datapoints al cluster, a medida que el número de clusters aumenta.
 
 Es decir, observamos como se agrupan los datapoints a medida 
 que k aumenta.
 ---
-###
+### Para k=1:9
 
 ```{r}
 kclusts <- 
@@ -167,10 +172,16 @@ kclusts <-
     augmented = map(kclust, augment, points)
   )
 
-kclusts
 ```
 ---
+## kclust
 
+```{r}
+
+kclusts
+```
+
+---
 ```{r}
 clusters <- 
   kclusts %>%
@@ -186,7 +197,7 @@ clusterings <-
 ```
 
 ---
-###
+### Plot 
 
 Se grafican los datapoints originales con su cluster predicho / asignado
 
@@ -199,8 +210,11 @@ p1
 ```
 
 ---
-
-Already we get a good sense of the proper number of clusters (3), and how the k-means algorithm functions when k is too high or too low. We can then add the centers of the cluster using the data from tidy():
+## Concluyendo
+Observamos que un número de tres (3) clústeres es apropiado,
+y como funciona el algoritmo k-means cuando el k es muy grando o 
+muy pequeño.
+Podemos agregar los centros al cluster usando la función tidy()
 
 ```{r}
 p2 <- p1 + geom_point(data = clusters, size = 10, shape = "x")
@@ -223,13 +237,16 @@ Al primer uso del dataset, debe instalarse el paquete que lo contiene.
 Luego podremos cargarlo sin problemas y usarlo para nuestro análisis.
 
 ```{r,eval=FALSE}
-install.packages("palmerpenguins")
+remotes::install_github("cienciadedatos/datos")
+library(datos)
 ```
+
 ---
 ## Carga del dataset en memoria y breve descripción
 
 ```{r}
-library(palmerpenguins)
+library(datos)
+pinguinos
 #data(package = 'palmerpenguins')
 ```
 
@@ -237,42 +254,50 @@ library(palmerpenguins)
 Observemos el tipo de sus atributos
 
 ```{r}
-str(penguins)
+str(pinguinos)
 ```
 ---
 Observamos que los atributos numéricos que pueden ser de interés para kmeans son:
 
-* bill_length_mm
-* bill_depth_mm
-* flipper_length_mm
-* body_mass_g
+* largo_pico_mm
+* alto_pico_mm
+* largo_aleta_mm
+* masa_corporal_g
 
 ---
-Son datos de pinguinos de tres especies. Observamos
-que no se relevó la misma cantidad de datos
+## Dataset palmerpenguis
+
+* Son datos de pingüinos de tres especies. 
+* Observamos que no se relevó la misma cantidad de datos
 para cada especie.
 
 ```{r}
-penguins %>% 
-  count(species)
+pinguinos %>% 
+  count(especie)
 ```
 ---
+## Clustering exploratorio
 
 Dado que kmeans trabaja con distancias promedios, 
 ¿nos regresaría algo similar a lo siguiente?
 ¿tendria sentido el clustering?
 ```{r}
-penguins %>% 
-  group_by(species) %>% 
+pinguinos %>% 
+  group_by(especie) %>% 
   summarize(across(where(is.numeric), mean, na.rm = TRUE))
 ```
 
-## Preprocesamiento de datos
 ---
+## Preprocesamiento de datos
+
+* largo_pico_mm
+* alto_pico_mm
+* largo_aleta_mm
+* masa_corporal_g
 
 ```{r}
-dataset <- penguins %>%
-          select(bill_length_mm,bill_depth_mm,body_mass_g,flipper_length_mm)
+dataset <- pinguinos %>%
+          select(largo_pico_mm,alto_pico_mm,largo_aleta_mm,masa_corporal_g)
 ```
 ---
 
@@ -323,4 +348,11 @@ tidy(kclust)
 
 ```
 
+---
 Rebobinemos, armemos el dataset 
+
+TODO 
+---
+# Referencias
+
+* Ejemplo uso K-means https://www.tidymodels.org/learn/statistics/k-means/
