@@ -150,12 +150,6 @@ background-size: cover
 
 .footnote[<sup>*</sup> Applied Predictive Modeling]
 
----
-
-## En una matriz de datos 
-
-
-
 
 ---
 
@@ -489,7 +483,7 @@ knitr::include_graphics("img/random-forest5.png")
 ### min_n
 * el número de observaciones necesarias para seguir dividiendo nodos
 
-
+  
 ---
 # Métricas `r emo::ji("triangular_ruler")`
 
@@ -1060,6 +1054,7 @@ background-size: cover
 
 #### Documentación de [`tidymodels`](https://www.tidymodels.org/)
 
+#### Alison Hill [rstudio conf](https://conf20-intro-ml.netlify.app/materials/) y [curso virtual](https://alison.rbind.io/post/2020-06-02-tidymodels-virtually/) material
 
 ---
 

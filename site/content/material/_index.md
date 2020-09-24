@@ -15,6 +15,6 @@ title: Material del Workshop
 
 ### [Clasificación](https://ml-tidy-wibds.netlify.app/slides/clasificacion.html#1)
 
-### [Regresión]
+### [Regresión] 
 
 ### [Análisis No Supervisado](https://ml-tidy-wibds.netlify.app/slides/unsupervised.html#1)
