@@ -92,15 +92,6 @@ background-size: cover
 ## `r fa("github", fill = 'black')` https://bit.ly/ml-wibds 
 
 
----
-
-background-image: url(img/cronograma.png)
-background-size: cover 
-
-
-## Cronograma 
-
-
 
 
 
@@ -149,12 +140,6 @@ background-size: cover
 * __Datos continuos__ son a base de escalas numéricas. El costo de un producto, la presión sanguínea, etc.
 
 .footnote[<sup>*</sup> Applied Predictive Modeling]
-
----
-
-## En una matriz de datos 
-
-
 
 
 ---
@@ -248,39 +233,6 @@ knitr::include_graphics("img/bias-variance.png")
 
 .footnote[<sup>*</sup> Machine Learning with R, the tidyverse and mlr]
 
----
-
-# Exploración de datos `r emo::ji("mag_right")`
-
-
-
-.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
-### La exploración de datos es un proceso iterativo en el que uno genera preguntas sobre sus datos, busca respuestas mediante la visualización y transformación de los mismos. Esto me permite afinar las preguntas e incluso, generar nuevas preguntas.
-
-]
-
-.footnote[Fuente: https://r4ds.had.co.nz/exploratory-data-analysis.html]
----
-
-## Cobran especial importancia en esta etapa
-
-
-.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
-
-#### Estudio de la distribución de las variables
-
-#### Presencia de valores perdidos
-
-#### Desbalance de las clases o grupos en estudio
-
-#### Presencia de datos extremos. 
-
-#### Covariación de variables
-
-]
-
-.footnote[Fuente: https://r4ds.had.co.nz/exploratory-data-analysis.html]
-
 
 ---
 
@@ -364,17 +316,6 @@ knitr::include_graphics("img/bret-tree.png")
 
 ---
 
-# Árboles de decisión
-
- 
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/decision1.png")
-```
-
-
-.footnote[https://bookdown.org/content/2031/arboles-de-decision-parte-i.html#que-son-los-arboles-de-decision]
----
-
 ## Hiperparámetro
 
 
@@ -385,6 +326,8 @@ knitr::include_graphics("img/decision1.png")
 
 
 .footnote[The Hundred-page machine learning book. Andriy Burkov]
+
+
 ---
 
 ## Hiperparámetros de 
@@ -489,7 +432,7 @@ knitr::include_graphics("img/random-forest5.png")
 ### min_n
 * el número de observaciones necesarias para seguir dividiendo nodos
 
-
+  
 ---
 # Métricas `r emo::ji("triangular_ruler")`
 
@@ -612,245 +555,6 @@ knitr::include_graphics("img/matriz-confusion.png")
 ]
 
 .footnote[__Learning from data__ Abu-Mostafa, Y.]
-
----
-
-
-## Aprendizaje No Supervisado
-
-
-```{r echo=FALSE, out.width = '90%',  fig.align='center'}
-knitr::include_graphics("img/unsupervised.png")
-```
-    
-.footnote[<sup>*</sup> Machine Learning with R, the tidyverse and mlr]
-
-
----
-
-
-### Análisis de componentes principales (PCA)
-
-.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
-
-### El Análisis de Componentes Principales es una técnica de reducción de dimensiones. Técnica clásica en la estadística y en el análisis supervisado. Se basa en maximizar la variancia creando nuevas variables que son combinaciones lineales de las anteriores.* 
-
-]
-
-.footnote[Machine Learning with R, the tidyvserse and mlr]
-
----
-
-## PCA
-
-
-
- 
-```{r echo=FALSE, out.width = '80%',  fig.align='center'}
-knitr::include_graphics("img/PC1-1.png")
-```
-
-
-.footnote[Machine Learning with R, the tidyvserse and mlr]
-
----
-
-## PCA
-
-
- 
-```{r echo=FALSE, out.width = '80%',  fig.align='center'}
-knitr::include_graphics("img/PC2-2.png")
-```
-
-.footnote[Machine Learning with R, the tidyvserse and mlr]
-
----
-
-## PCA
-
- 
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/PC3.png")
-```
-
-.footnote[Machine Learning with R, the tidyvserse and mlr]
-
----
-
-## PCA
-
-```{r echo=FALSE, out.width = '80%',  fig.align='center'}
-knitr::include_graphics("img/PC4-4.png")
-```
-
-.footnote[Machine Learning with R, the tidyvserse and mlr]
-
----
-
-
-## Clusterizado o clustering
-
-
-.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
-### Clusterizado se utiliza para identificar grupos 'clusters' en un set de datos.
-### Un clúster es un grupo de casos que son más similares entre sí que entre los demás. 
-### Similar a la clasificación, pero no contamos con información previa sobre a qué grupo pertenece cada individuo. 
-]
-
-
-.footnote[Machine Learning with R, the tidyvserse and mlr]
-
----
-
-### Clusterizado KMeans
-
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_1.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
----
-
-### Clusterizado KMeans
-
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_2.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
-
----
-
-### Clusterizado KMeans
-
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_3.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
-
----
-
-### Clusterizado KMeans
-
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_4.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
-
----
-### Clusterizado KMeans
-
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_5.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
----
-
-### Clusterizado KMeans
-
-
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_6.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
----
-
-### Clusterizado KMeans
-
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_7.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
----
-
-### Clusterizado KMeans
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_8.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
-
----
-
-
-### Clusterizado KMeans
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_9.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
-
-
-
----
-
-### Clusterizado KMeans
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_10.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
-
-
----
-
-
-### Clusterizado KMeans
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_11.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
-
-
-
----
-
-
-### Clusterizado KMeans
-  
-```{r echo=FALSE, out.width = '100%',  fig.align='center'}
-knitr::include_graphics("img/kmeans_12.jpg")
-```
-
-
-.footnote[Fuente: https://github.com/allisonhorst/stats-illustrations]
 
 
 
@@ -1040,25 +744,6 @@ knitr::include_graphics("img/yardstick.png")
 
 ]
 
-
----
-
-background-image: url(img/biblio.png)
-background-size: cover
-
-
-# Bibliografía
-
-
-#### Max Kuhn & Julia Silge - [Tidy Modeling (en desarrollo)](https://www.tmwr.org/)
-
-#### Julia Silge's [Personal Blog](https://juliasilge.com/blog/)
-
-#### Max Kuhn & Kjell Johnson - [Feature engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/)
-
-#### Max Kuhn & Kjell Johnson - Applied Predictive Modeling
-
-#### Documentación de [`tidymodels`](https://www.tidymodels.org/)
 
 
 ---

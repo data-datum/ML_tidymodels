@@ -1,0 +1,423 @@
+---
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+background-image: url(img/portada.png)
+background-size: cover
+class: animated slideInRight fadeOutLeft, middle
+
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#6c5396",
+  secondary_color = "#534173",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r xaringan-animate-css, echo=FALSE}
+xaringanExtra::use_animate_css()
+```
+
+```{r broadcast, echo=FALSE}
+xaringanExtra::use_broadcast()
+```
+
+
+
+```{r librerias-utiles, message=FALSE, warning=FALSE, include=FALSE} 
+library(fontawesome)
+library(emo)
+library(htmltools)
+```
+
+```{r xaringan-extra-styles, include=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+
+
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_fit_screen()
+xaringanExtra::use_logo("img/logo-tidymodels.png")
+```
+
+
+```{r xaringan-tachyons, echo=FALSE}
+xaringanExtra::use_tachyons()
+xaringanExtra::use_panelset()
+```
+
+
+# Introducción a Machine Learning con `tidymodels`
+
+
+### 1º Congreso Latinoamericano de Mujeres en Bioinformática y Ciencia de Datos
+
+
+
+---
+
+background-image: url(img/equipo-fondo.png)
+background-size: cover
+
+## Equipo 
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/equipo.png")
+```
+  
+
+---
+
+background-image: url(img/material.png)
+background-size: cover
+
+## Material de este tutorial 
+<br><br>
+## `r emo::ji("earth_americas")` https://ml-tidy-wibds.netlify.app/
+
+<br><br>
+## `r fa("github", fill = 'black')` https://bit.ly/ml-wibds 
+
+
+---
+
+## ¿Qué es EDA? `r emo::ji("mag_right")`
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+### **EDA** o Análisis Exploratorio de Datos 
+
+#### es un ciclo iterativo y un proceso creativo en donde, 
+
+#### - **Generas preguntas acerca de tus datos.**
+
+#### - **Buscas respuestas mediante la visualización y transformación de los mismos.**
+
+#### - **En base a lo aprendido, refinas tus preguntas e incluso, generas nuevas.**
+
+]
+.footnote[Fuente: [R para Ciencia de  Datos](https://es.r4ds.hadley.nz/an%C3%A1lisis-exploratorio-de-datos-eda.html)]
+---
+
+## Cobran especial importancia en esta etapa
+
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+#### Estudio de la distribución de las variables
+
+#### Presencia de valores perdidos
+
+#### Desbalance de las clases o grupos en estudio
+
+#### Presencia de datos extremos o outliers 
+
+#### Covariación de variables
+
+]
+
+.footnote[Fuente: [R para Ciencia de  Datos](https://es.r4ds.hadley.nz/an%C3%A1lisis-exploratorio-de-datos-eda.html)]
+---
+## ¿Por qué es importante el Análisis exploratorio de datos? `r emo::ji("bulb")`
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Porque te permite conocer y entender tus datos. ]
+
+--
+
+```{r echo=FALSE, out.width = '60%', align="center"}
+knitr::include_graphics("https://media.giphy.com/media/1jl173guBKkbvC03rQ/giphy.gif")
+```
+
+---
+
+## Siempre es importante recordar `r emo::ji("bulb")`
+
+* **Una variable** es una cantidad, cualidad o característica mesurable.
+
+
+
+* **Un valor** es el estado de la variable en el momento en que fue medida. El valor de una variable puede cambiar de una medición a otra.
+
+
+
+* **Una observación** es un conjunto de mediciones realizadas en condiciones similares. Una observación contiene muchos valores, cada uno asociado a una variable diferente. 
+
+
+
+* **Los datos tabulares** son un conjunto de valores, cada uno asociado a una variable y a una observación. Los **datos tabulares están ordenados** si cada valor está almacenado en su propia “celda”, cada variable cuenta con su propia columna, y cada observación corresponde a una fila.<br>
+
+
+.footnote[Fuente: [R para Ciencia de  Datos](https://es.r4ds.hadley.nz/an%C3%A1lisis-exploratorio-de-datos-eda.html)]
+
+---
+## Siempre es importante recordar `r emo::ji("bulb")`
+
+### Tipos de variables 
+
+#### Variables numéricas
+
+
+```{r tipo-variable1, echo=FALSE, out.width = '60%',  fig.align='center'}
+knitr::include_graphics("img/continuous_discrete_variables.png")
+```
+
+
+.footnote[Fuente: [Illustración de Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
+---
+## Siempre es importante recordar `r emo::ji("bulb")`
+
+### Tipos de variables 
+
+#### Variables categóricas
+
+
+```{r tipo-variable2, echo=FALSE, out.width = '70%',  fig.align='center'}
+knitr::include_graphics("img/nominal_ordinal_binary_variables.png")
+```
+
+.footnote[Fuente: [Illustración de Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
+---
+# ¡Importante!`r emo::ji("voltage")`
+
+* ### En esta etapa necesito 
+--
+
+* ### que los gráficos sean útiles no bonitos 
+
+--
+* ### y que me ayuden a entender el comportamiento de mis variables.
+
+  
+
+---
+# Pero cuáles gráficos son útiles ...`r emo::ji("confused")`
+
+--
+### Aquellos que me ayuden a visualizar la distribución de mis variables
+
+.pull-left[
+
+#### Para variables discretas/categóricas `r emo::ji("arrow_right")` **gráficos de barras** 
+<img src="img/barras.png" width="100%" align="right" />
+]
+
+.pull-right[
+
+#### Para variables continuas `r emo::ji("arrow_down")` **histogramas** 
+<img src="img/histograma.png" width="60%" align="center" />
+]
+---
+### Gráficos útiles
+.pull-left[
+#### Para 'x' categórica e 'y' continua `r emo::ji("arrow_down")` **boxplot** 
+
+<img src="img/boxplots.png" width="80%" align="center" />
+]
+
+.pull-right[
+#### Otra opción de gráfico `r emo::ji("arrow_right")` **gráfico de violin** 
+<img src="img/violin_plot.png" width="80%" align="center" />
+]
+
+
+---
+
+### Gráficos útiles 
+.pull-left[ 
+#### Para 'x' continua e 'y' continua `r emo::ji("arrow_down")` **scatterplot** o también **geom_jitter**
+<img src="img/scatterplot.png" width="80%" align="center" />
+]
+
+.pull-right[
+#### Para 'x' categórica e 'y' categórica `r emo::ji("arrow_right")` **heatmap** o **geom_count** 
+<img src="img/heatmap.png" width="80%" align="center" />
+]
+
+---
+
+
+background-image: url(img/penguin2.jpg)
+background-size: cover
+class: inverse, middle, animated slideInRight fadeOutLeft
+
+
+# Análisis Exploratorio
+
+---
+## Datos: Pinguinos `r emo::ji("penguin")`
+
+
+```{r eval=FALSE}
+remotes::install_github("cienciadedatos/datos")
+library(pinguinos)
+```
+
+
+```{r echo=FALSE, out.width = '65%',  fig.align='center'}
+knitr::include_graphics("img/penguins.png")
+```
+
+.footnote[<sup>*</sup> https://github.com/allisonhorst/palmerpenguins]
+---
+
+
+## Estructura del dataset
+
+```{r librerias-para-exploracion, message=FALSE}
+library(datos)
+library(dplyr)
+```
+
+```{r estructura-dataset, echo=FALSE}
+#library(DT)
+#datatable(penguins, options = list(pageLength = 5))
+
+pinguinos %>% glimpse
+```
+
+```{r img-pico, echo=FALSE, out.width = '35%',  fig.align='right'}
+knitr::include_graphics("img/pico.png")
+```
+---
+
+### ¿Datos balanceados o desbalanceados?
+
+#### Veamos si las clases están balanceadas
+
+* Es importante saber si un set de datos está balanceado o desbalanceado, ya que eso introduce un **sesgo en los algoritmos**. 
+
+```{r cuento-especies}
+pinguinos %>%
+  count(especie)
+```
+
+**Las clase Barbijo no está balanceada respecto a las restantes**
+
+
+
+---
+## Valores descriptivos de los datos
+###  Opción 1: 'group_by()' + 'summarize()'
+
+```{r valor-descriptivo, message=FALSE, warning=FALSE}
+
+pinguinos %>%
+  group_by(especie) %>%
+  summarize (across(where(is.numeric), mean, na.rm=FALSE))
+```
+
+---
+### Opción 2: 'summary'
+
+```{r valor-descriptivo2,message=FALSE, warning=FALSE}
+pinguinos %>% summary
+
+```
+
+---
+## Distribución de nuestras variables `r emo::ji("bar_chart")`
+
+```{r distribucion-largo-pico, message=FALSE, warning=FALSE, out.width = '45%', dpi= 100,  fig.align='center'}
+library(ggplot2)
+library(hrbrthemes)
+colores  <- c("darkorange","purple","cyan4") 
+ggplot(pinguinos, aes(x= largo_pico_mm, fill=especie)) +
+  geom_histogram(binwidth = 0.8, na.rm = TRUE) +
+  scale_fill_manual(values= colores) + # 0.5
+  theme_ipsum_tw()
+```
+---
+## Distribución de nuestras variables `r emo::ji("bar_chart")`
+#### variable: largo_pico_mm
+
+```{r geom_density, message=FALSE, warning=FALSE, out.width = '50%',  fig.align='center'}
+ggplot(pinguinos, aes(x= largo_pico_mm, fill=especie)) +
+  geom_density(binwidth = 0.8, na.rm= TRUE) +
+  scale_fill_manual(values= colores) +
+  labs(x="largo pico(mm)") +
+  theme_ipsum_tw()
+```
+---
+
+### ¿Cómo es la distribución de las especies respecto del largo de las aletas?
+
+```{r message=FALSE, warning=FALSE, out.width = '50%',fig.align='center'}
+
+ggplot(pinguinos, aes(x=reorder(especie, masa_corporal_g, FUN = median), y= masa_corporal_g, fill=especie)) +
+  geom_boxplot(na.rm = TRUE)+
+  scale_fill_manual(values=colores) +
+  labs(x= 'especies', y='masa corporal (gr.)', title= 'Distribución del peso según la especie') +
+  theme_ipsum_tw()
+
+```
+---
+### ¿Existe relación entre masa_corporal_g y el largo_aleta_mm?
+
+```{r scatterplot, message=FALSE, warning=FALSE, out.width = '60%', fig.align='center'}
+ggplot(pinguinos, aes(masa_corporal_g,largo_aleta_mm, color=especie)) +
+  geom_point() +
+  scale_color_manual(values = colores) +
+  labs(x= 'masa corporal (gr.)', y='largo aleta(mm)', title= 'Relación entre masa corporal y el largo de la aleta') +
+  theme_ipsum_tw()
+```
+---
+## ¿En cada isla viven todas las especies de pinguinos?
+
+```{r jitter-plot, message=FALSE, warning=FALSE, out.width = '50%', fig.align='center'}
+ggplot(pinguinos, aes(x = isla, y = especie, color = especie)) +   
+  geom_jitter(size = 3) + 
+  scale_color_manual(values = colores) +
+    theme_ipsum_tw()
+```
+
+---
+
+background-image: url(img/penguin4.jpg)
+background-size: cover
+class: inverse, animated slideInRight fadeOutLeft, middle,animated animate__heartBeat
+## Siguiente Paso `r emo::ji("crystal_ball")`
+
+
+### - ¿Es posible predecir la longitud de las alas en función de la lmasa corporal o en función de la masa corporal + longitud_pico?
+
+--
+
+### - ¿Es posible predecir la especie de los pinguinos teniendo en cuenta la masa corporal?
+
+---
+
+background-image: url(img/biblio.png)
+background-size: cover
+
+
+# Bibliografía
+
+### * R para Ciencia de datos
+
+### * Education Rstudio (https://education.rstudio.com/blog/2020/07/palmerpenguins-cran/)
+
+### * Las Imágenes utilizadas fueron tomadas de Unsplash
+---
+
+
+
+
