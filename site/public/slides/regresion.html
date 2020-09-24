@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>regresion.utf8</title>
+    <meta charset="utf-8" />
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+background-image: url(img/portada.png)
+background-size: cover
+class: animated slideInRight fadeOutLeft, middle
+
+
+
+
+
+
+
+
+
+  
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 110px;
+height: 128px;
+z-index: 0;
+background-image: url(img/logo-tidymodels.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+
+
+
+
+# Regresión
+
+
+### 1º Congreso Latinoamericano de Mujeres en Bioinformática y Ciencia de Datos
+
+---
+### Regresión
+
+La variable de respuesta `\(Y\)` es numérica.
+
+Por ejemplo:
+
+* Nivel salinidad marina.
+* Temperatura media.
+* Precio de una casa.
+* Salario mínimo.
+* Precio dólar blue.
+
+---
+## Nuestros pingüinos 🐧
+
+### Ingreso los datos 
+
+
+```r
+library(tidymodels) 
+library(datos)
+
+dataset &lt;- pinguinos %&gt;%
+  drop_na() %&gt;% #elimino valores perdidos
+  select(-anio,-sexo, -isla) #elimino columnas q no son numéricas
+glimpse(dataset)
+```
+
+```
+## Rows: 333
+## Columns: 5
+## $ especie         &lt;fct&gt; Adelia, Adelia, Adelia, Adelia, Adelia, Adelia, Adeli…
+## $ largo_pico_mm   &lt;dbl&gt; 39.1, 39.5, 40.3, 36.7, 39.3, 38.9, 39.2, 41.1, 38.6,…
+## $ alto_pico_mm    &lt;dbl&gt; 18.7, 17.4, 18.0, 19.3, 20.6, 17.8, 19.6, 17.6, 21.2,…
+## $ largo_aleta_mm  &lt;int&gt; 181, 186, 195, 193, 190, 181, 195, 182, 191, 198, 185…
+## $ masa_corporal_g &lt;int&gt; 3750, 3800, 3250, 3450, 3650, 3625, 4675, 3200, 3800,…
+```
+
+---
+## Analizamos:
+
+Relación entre variables continuas: ancho y largo de pico
+
+
+```r
+ggplot(dataset,aes(largo_pico_mm,alto_pico_mm)) +
+  geom_point()
+```
+
+&lt;img src="regresion_files/figure-html/unnamed-chunk-4-1.png" width="50%" /&gt;
+???
+No observamos correlación
+---
+## Analizamos:
+
+La relación entre variables continuas: peso y largo de alas
+
+
+```r
+ggplot(dataset,aes(largo_aleta_mm,masa_corporal_g)) +
+  geom_point()
+```
+
+&lt;img src="regresion_files/figure-html/unnamed-chunk-5-1.png" width="50%" /&gt;
+
+
+---
+## Correlación
+
+Observamos una mayor correlación entre el peso y el largo de las alas.
+
+
+```r
+cor(dataset$largo_aleta_mm,dataset$masa_corporal_g)
+```
+
+```
+## [1] 0.8729789
+```
+
+
+```r
+cor(dataset$largo_aleta_mm,dataset$alto_pico_mm)
+```
+
+```
+## [1] -0.5777917
+```
+
+
+```r
+cor(dataset$largo_pico_mm,dataset$masa_corporal_g)
+```
+
+```
+## [1] 0.5894511
+```
+
+---
+
+
+background-image: url(img/penguin2.jpg)
+background-size: cover
+class: inverse, animated slideInRight fadeOutLeft, middle
+
+### Pregunta - Hipótesis
+
+* ¿Es posible predecir el peso del pingüino a partir de la medición de la aleta?
+
+* ¿Es posible predecir el peso del pingüino a partir de otras mediciones?
+
+---
+## Vamos a dividir el set de datos 
+
+
+```r
+set.seed(123) # &lt;- muy importante
+p_split &lt;- dataset %&gt;%
+  initial_split(prop=0.75)
+
+p_train &lt;- training(p_split)
+p_test  &lt;- testing(p_split)
+p_split
+```
+
+```
+## &lt;Analysis/Assess/Total&gt;
+## &lt;250/83/333&gt;
+```
+
+
+Estos son los datos de entrenamiento/prueba/total 
+
+* __Vamos a _entrenar_ con 250 muestras__
+* __Vamos a _validar_ con 83 muestras__
+* __Datos totales: 333__
+
+---
+## Modelos lineales
+
+* ¿Cuántos modelos lineales para regresión conoces? 
+* ¿ O cuántas implementaciones de modelo lineal?
+
+Por ejemplo, librerías como:
+* lm
+* glm
+* stan
+* keras
+
+
+&lt;img src="img/parsnip_allison.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Modelo lineal lm
+
+
+```r
+lm_spec &lt;- linear_reg() %&gt;%
+  set_engine(engine = "lm")
+lm_spec
+```
+
+```
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
+```
+
+---
+## Modelo lineal lm
+
+
+
+```r
+set.seed(123)
+lm_fit &lt;- lm_spec %&gt;%
+  fit(largo_aleta_mm ~ masa_corporal_g,
+    data = p_train
+  )
+
+lm_fit
+```
+
+```
+## parsnip model object
+## 
+## Fit time:  14ms 
+## 
+## Call:
+## stats::lm(formula = largo_aleta_mm ~ masa_corporal_g, data = data)
+## 
+## Coefficients:
+##     (Intercept)  masa_corporal_g  
+##       137.95557          0.01496
+```
+
+---
+## Ejercicio 1
+
+Chequea que el resultado anterior es igual a usar un modelo lm()
+
+
+
+```r
+set.seed(123)
+lm(largo_aleta_mm ~ masa_corporal_g,
+    data = p_train)
+```
+
+
+<div class="countdown" id="timer_5f6ce115" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">00</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+</div>
+---
+## Ejercicio 1 - respuesta
+
+Chequea que el resultado anterior es igual a usar un modelo lm()
+
+
+
+```r
+set.seed(123)
+lm(largo_aleta_mm ~ masa_corporal_g,
+    data = p_train)
+```
+
+```
+## 
+## Call:
+## lm(formula = largo_aleta_mm ~ masa_corporal_g, data = p_train)
+## 
+## Coefficients:
+##     (Intercept)  masa_corporal_g  
+##       137.95557          0.01496
+```
+
+
+---
+## Todo junto
+
+
+```r
+set.seed(123)
+lm_fit &lt;- linear_reg() %&gt;%
+  set_engine(engine = "lm") %&gt;%
+  fit(largo_aleta_mm ~ masa_corporal_g,
+    data = p_train
+  )
+```
+
+---
+## Todo nuestro análisis
+
+
+```r
+set.seed(100) # Importante
+p_split  &lt;- initial_split(dataset, prop=0.75) 
+p_train  &lt;- training(p_split)
+p_test   &lt;- testing(p_split)
+
+lm_fit      &lt;- lm_spec %&gt;% 
+                fit(masa_corporal_g ~ largo_aleta_mm,
+                    data = p_train)
+
+predicho  &lt;- lm_fit %&gt;% 
+                predict(new_data = p_test) %&gt;% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(predicho, truth = verdadero,estimate=.pred)
+```
+
+```
+## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 rmse    standard        366.
+```
+
+---
+## Root Mean Standard Error 
+
+
+`\(RMSE = \sqrt{ \frac{1}{N}\sum_{i=1}^{N} ( y_{pred_i} - y_{i})^2}\)`
+
+
+```r
+rmse(predicho, truth = verdadero,estimate=.pred)
+```
+
+```
+## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 rmse    standard        366.
+```
+
+```r
+mae(predicho, truth = verdadero,estimate=.pred)
+```
+
+```
+## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 mae     standard        290.
+```
+`\(mae = (\frac{1}{n})\sum_{i=1}^{n}\left | y_{i} - x_{i} \right|\)`
+---
+### Graficando el modelo lineal
+
+&lt;img src="regresion_files/figure-html/unnamed-chunk-16-1.png" width="70%" /&gt;
+
+---
+## Ejercicio 2
+
+¿Podemos mejorar el desempeño del modelo agregando más variables?
+
+Modifica la fórmula de lm agregando las variables
+* largo_pico_mm
+* alto_pico_mm
+* largo_aleta_mm
+
+¿Mejora el error (RMSE) ?
+
+<div class="countdown" id="timer_5f6cdef3" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+---
+## Ejercicio 2 - respuesta
+
+
+```r
+set.seed(100) # Importante
+p_split  &lt;- initial_split(dataset, prop=0.75) 
+p_train  &lt;- training(p_split)
+p_test   &lt;- testing(p_split)
+
+lm_fit_all      &lt;- lm_spec %&gt;% 
+                fit(masa_corporal_g ~ largo_pico_mm +alto_pico_mm+largo_aleta_mm,
+                    data = p_train)
+
+peso_pred_all  &lt;- lm_fit_all %&gt;% 
+                predict(new_data = p_test) %&gt;% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(peso_pred_all, truth = verdadero,estimate=.pred)
+```
+
+```
+## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 rmse    standard        372.
+```
+---
+### Modelo lm para varias variables de entrada
+
+```r
+lm_fit_all
+```
+
+```
+## parsnip model object
+## 
+## Fit time:  7ms 
+## 
+## Call:
+## stats::lm(formula = masa_corporal_g ~ largo_pico_mm + alto_pico_mm + 
+##     largo_aleta_mm, data = data)
+## 
+## Coefficients:
+##    (Intercept)   largo_pico_mm    alto_pico_mm  largo_aleta_mm  
+##      -6700.908           2.089          31.021          51.180
+```
+
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+### Random Forest
+
+
+```r
+rf_spec &lt;- rand_forest(mode = "regression") %&gt;%  #&lt;-
+  set_engine("ranger")
+rf_spec
+```
+
+```
+## Random Forest Model Specification (regression)
+## 
+## Computational engine: ranger
+```
+
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+### Random Forest
+
+
+```r
+set.seed(123)
+rf_fit &lt;- rf_spec %&gt;%
+  fit(masa_corporal_g ~ largo_pico_mm +alto_pico_mm + largo_aleta_mm,
+    data = p_train)
+
+rf_fit
+```
+
+```
+## parsnip model object
+## 
+## Fit time:  233ms 
+## Ranger result
+## 
+## Call:
+##  ranger::ranger(formula = masa_corporal_g ~ largo_pico_mm + alto_pico_mm +      largo_aleta_mm, data = data, num.threads = 1, verbose = FALSE,      seed = sample.int(10^5, 1)) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      250 
+## Number of independent variables:  3 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       125163.4 
+## R squared (OOB):                  0.8054198
+```
+
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+## Random forest
+
+
+```r
+rf_fit %&gt;% 
+                predict(new_data = p_test) %&gt;% 
+                mutate(verdadero = p_test$masa_corporal_g)
+```
+
+```
+## # A tibble: 83 x 2
+##    .pred verdadero
+##    &lt;dbl&gt;     &lt;int&gt;
+##  1 3781.      3450
+##  2 3985.      4675
+##  3 3853.      3450
+##  4 3525.      3400
+##  5 3389.      3250
+##  6 4081.      4150
+##  7 4028.      3900
+##  8 3844.      3425
+##  9 4108.      4150
+## 10 3461.      3450
+## # … with 73 more rows
+```
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+## Random forest
+
+
+```r
+peso_pred_rf &lt;- rf_fit %&gt;% 
+                predict(new_data = p_test) %&gt;% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(peso_pred_rf, truth = verdadero,estimate=.pred)
+```
+
+```
+## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 rmse    standard        321.
+```
+
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+
+```r
+peso_pred_rf  &lt;- rf_fit %&gt;% 
+                predict(new_data = p_test) %&gt;% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(peso_pred_rf, truth = verdadero,estimate=.pred)
+```
+
+```
+## # A tibble: 1 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 rmse    standard        321.
+```
+---
+## Comparando desempeño 
+en el conjunto de entrenamiento
+
+
+```r
+results_train &lt;- lm_fit_all %&gt;%
+  predict(new_data = p_train) %&gt;%
+  mutate(
+    verdadero = p_train$masa_corporal_g,
+    model = "lm"
+  ) %&gt;%
+  bind_rows(rf_fit %&gt;%
+    predict(new_data = p_train) %&gt;%
+    mutate(
+      verdadero = p_train$masa_corporal_g,
+      model = "rf"
+    ))
+```
+
+---
+## Resultados conjunto entrenamiento 
+
+
+```r
+results_train %&gt;%
+  group_by(model) %&gt;%
+  rmse(truth = verdadero, estimate = .pred)
+```
+
+```
+## # A tibble: 2 x 4
+##   model .metric .estimator .estimate
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 lm    rmse    standard        398.
+## 2 rf    rmse    standard        185.
+```
+
+---
+background-image: url(img/dt-fondo.png)
+background-size: cover
+
+### Ejercicio 3 
+
+.bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
+#### Compare el rendimiento de los modelos en el conjunto de datos de testeo.
+Copie y pegue el código anterior. 
+Modifique lo necesario.
+]
+
+<div class="countdown" id="timer_5f6cdf52" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+## Comparando modelos en el testeo
+
+
+```r
+results_test &lt;- lm_fit_all %&gt;%
+  predict(new_data = p_test) %&gt;%
+  mutate(
+    verdadero = p_test$masa_corporal_g,
+    model = "lm"
+  ) %&gt;%
+  bind_rows(rf_fit %&gt;%
+    predict(new_data = p_test) %&gt;%
+    mutate(
+      verdadero = p_test$masa_corporal_g,
+      model = "rf"
+    ))
+```
+
+
+```r
+results_test %&gt;%
+  group_by(model) %&gt;%
+  rmse(truth = verdadero, estimate = .pred)
+```
+
+```
+## # A tibble: 2 x 4
+##   model .metric .estimator .estimate
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 lm    rmse    standard        372.
+## 2 rf    rmse    standard        321.
+```
+---
+### FIN apartado :-) 
+
+* Muchas gracias
+* Recreo
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

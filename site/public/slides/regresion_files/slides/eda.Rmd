@@ -1,0 +1,150 @@
+---
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+background-image: url(img/portada.png)
+background-size: cover
+class: animated slideInRight fadeOutLeft, middle
+
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#6c5396",
+  secondary_color = "#534173",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r , message=FALSE, warning=FALSE, include=FALSE} 
+library(fontawesome)
+library(emo)
+library(htmltools)
+```
+
+```{r xaringan-extra-styles, include=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+
+
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_fit_screen()
+xaringanExtra::use_logo("img/logo-tidymodels.png")
+```
+
+
+```{r include=FALSE}
+library(countdown)
+```
+
+
+```{r xaringan-tachyons, echo=FALSE}
+xaringanExtra::use_tachyons()
+xaringanExtra::use_panelset()
+```
+
+
+# Análisis Exploratorio
+
+
+### 1º Congreso Latinoamericano de Mujeres en Bioinformática y Ciencia de Datos
+
+
+---
+
+
+---
+
+## Datos: Palmer Penguins `r emo::ji("penguin")`
+
+
+```{r eval=FALSE}
+install.packages("palmerpenguins") #ya disponible en CRAN
+```
+
+
+
+
+```{r echo=FALSE, out.width = '65%',  fig.align='center'}
+knitr::include_graphics("img/penguins.png")
+```
+
+
+```{r echo=FALSE, out.width = '35%',  fig.align='right'}
+knitr::include_graphics("img/pico.png")
+```
+
+
+
+
+
+
+.footnote[<sup>*</sup> https://github.com/allisonhorst/palmerpenguins]
+
+
+
+
+---
+
+## Exploración de datos 
+
+```{r message=FALSE}
+library(palmerpenguins)
+library(dplyr)
+```
+
+```{r echo=FALSE}
+library(DT)
+datatable(penguins, options = list(pageLength = 5))
+```
+
+---
+
+
+background-image: url(img/penguin2.jpg)
+background-size: cover
+class: inverse, animated slideInRight fadeOutLeft, middle
+
+
+# Análisis Exploratorio
+
+---
+
+
+## Datos balanceados o desbalanceados
+
+Veamos si las clases están balanceadas
+```{r}
+penguins %>%
+  count(species)
+```
+
+**Las clases no están balanceadas**
+
+Es importante saber si un set de datos está balanceado o desbalanceado, ya que eso introduce un **sesgo en los algoritmos**. 
+
+---
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarize(across(where(is.numeric), mean, na.rm = TRUE))
+```
+
+
+
