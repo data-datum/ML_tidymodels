@@ -37,7 +37,7 @@ style_duo_accent(
   inverse_header_color = "#FFFFFF"
 )
 ```
-
+  
 ```{r , message=FALSE, warning=FALSE, include=FALSE} 
 library(fontawesome)
 library(emo)
@@ -61,38 +61,51 @@ xaringanExtra::use_fit_screen()
 ### 1º Congreso Latinoamericano de Mujeres en Bioinformática y Ciencia de Datos
 
 ---
+### Regresión
 
-## Vamos a modelar las especies `r emo::ji("penguin")`
+La variable de respuesta $Y$ es numérica.
+
+Por ejemplo:
+
+* Nivel salinidad marina.
+* Temperatura media.
+* Precio de una casa.
+* Salario mínimo.
+* Precio dólar blue.
+
+---
+## Nuestros pingüinos `r emo::ji("penguin")`
 
 ### Ingreso los datos 
+
 ```{r message=FALSE, warning=FALSE}
 library(tidymodels) 
-library(palmerpenguins)
+library(datos)
 
-dataset <- palmerpenguins::penguins %>%
+dataset <- pinguinos %>%
   drop_na() %>% #elimino valores perdidos
-  select(-year,-sex, -island) #elimino columnas q no son numéricas
+  select(-anio,-sexo, -isla) #elimino columnas q no son numéricas
 glimpse(dataset)
 ```
 
 ---
-## Analizamos la relación entre variables continuas
+## Analizamos:
 
-Ancho y largo de pico
+Relación entre variables continuas: ancho y largo de pico
 
-```{r}
-ggplot(dataset,aes(bill_length_mm,bill_depth_mm)) +
+```{r out.width="50%"}
+ggplot(dataset,aes(largo_pico_mm,alto_pico_mm)) +
   geom_point()
 ```
-
-No vemos mucha correlación
-
-
+???
+No observamos correlación
 ---
-## Analizamos la relación entre variables continuas
-Peso y largo de alas
-```{r}
-ggplot(dataset,aes(flipper_length_mm,body_mass_g)) +
+## Analizamos:
+
+La relación entre variables continuas: peso y largo de alas
+
+```{r out.width="50%" }
+ggplot(dataset,aes(largo_aleta_mm,masa_corporal_g)) +
   geom_point()
 ```
 
@@ -103,24 +116,37 @@ ggplot(dataset,aes(flipper_length_mm,body_mass_g)) +
 Observamos una mayor correlación entre el peso y el largo de las alas.
 
 ```{r}
-cor(dataset$flipper_length_mm,dataset$body_mass_g)
-```
-bill_length_mm,bill_depth_mm
-```{r}
-cor(dataset$bill_length_mm,dataset$bill_depth_mm)
+cor(dataset$largo_aleta_mm,dataset$masa_corporal_g)
 ```
 
 ```{r}
-cor(dataset$bill_length_mm,dataset$body_mass_g)
+cor(dataset$largo_aleta_mm,dataset$alto_pico_mm)
 ```
+
+```{r}
+cor(dataset$largo_pico_mm,dataset$masa_corporal_g)
+```
+
+---
+
+
+background-image: url(img/penguin2.jpg)
+background-size: cover
+class: inverse, animated slideInRight fadeOutLeft, middle
+
+### Pregunta - Hipótesis
+
+* ¿Es posible predecir el peso del pingüino a partir de la medición de la aleta?
+
+* ¿Es posible predecir el peso del pingüino a partir de otras mediciones?
 
 ---
 ## Vamos a dividir el set de datos 
 
 ```{r split, cache=TRUE}
-library(rsample)
+set.seed(123) # <- muy importante
 p_split <- dataset %>%
-  `initial_split`(prop=0.75)
+  initial_split(prop=0.75)
 
 p_train <- training(p_split)
 p_test  <- testing(p_split)
@@ -136,25 +162,173 @@ Estos son los datos de entrenamiento/prueba/total
 * __Datos totales: 333__
 
 ---
-## Modelo lineal
+## Modelos lineales
 
-```{r}
+* ¿Cuántos modelos lineales para regresión conoces? 
+* ¿ O cuántas implementaciones de modelo lineal?
+
+Por ejemplo, librerías como:
+* lm
+* glm
+* stan
+* keras
+
+
+```{r echo=FALSE, out.width = '80%',  fig.align='center'}
+knitr::include_graphics("img/parsnip_allison.png")
+```
+
+---
+## Modelo lineal lm
+
+```{r  cache=TRUE}
 lm_spec <- linear_reg() %>%
   set_engine(engine = "lm")
 lm_spec
 ```
 
 ---
-## Modelo lineal
+## Modelo lineal lm
 
-```{r}
+
+```{r  cache=TRUE}
 set.seed(123)
 lm_fit <- lm_spec %>%
-  fit(flipper_length_mm ~ body_mass_g,
+  fit(largo_aleta_mm ~ masa_corporal_g,
     data = p_train
   )
 
 lm_fit
+```
+
+---
+## Ejercicio 1
+
+Chequea que el resultado anterior es igual a usar un modelo lm()
+
+
+```{r cache=TRUE,eval=FALSE}
+set.seed(123)
+lm(largo_aleta_mm ~ masa_corporal_g,
+    data = p_train)
+```
+
+
+`r countdown(minutes = 0, seconds = 30)`
+---
+## Ejercicio 1 - respuesta
+
+Chequea que el resultado anterior es igual a usar un modelo lm()
+
+
+```{r cache=TRUE}
+set.seed(123)
+lm(largo_aleta_mm ~ masa_corporal_g,
+    data = p_train)
+```
+
+
+---
+## Todo junto
+
+```{r}
+set.seed(123)
+lm_fit <- linear_reg() %>%
+  set_engine(engine = "lm") %>%
+  fit(largo_aleta_mm ~ masa_corporal_g,
+    data = p_train
+  )
+
+```
+
+---
+## Todo nuestro análisis
+
+```{r todojunto1, cache=TRUE}
+set.seed(100) # Importante
+p_split  <- initial_split(dataset, prop=0.75) 
+p_train  <- training(p_split)
+p_test   <- testing(p_split)
+
+lm_fit      <- lm_spec %>% 
+                fit(masa_corporal_g ~ largo_aleta_mm,
+                    data = p_train)
+
+predicho  <- lm_fit %>% 
+                predict(new_data = p_test) %>% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(predicho, truth = verdadero,estimate=.pred)
+
+```
+
+---
+## Root Mean Standard Error 
+
+
+$RMSE = \sqrt{ \frac{1}{N}\sum_{i=1}^{N} ( y_{pred_i} - y_{i})^2}$
+
+```{r}
+rmse(predicho, truth = verdadero,estimate=.pred)
+mae(predicho, truth = verdadero,estimate=.pred)
+```
+$mae = (\frac{1}{n})\sum_{i=1}^{n}\left | y_{i} - x_{i} \right|$
+---
+### Graficando el modelo lineal
+
+```{r out.width="70%",echo=FALSE,message=FALSE}
+ggplot(dataset,aes(largo_aleta_mm , masa_corporal_g)) +
+  geom_point() +
+  geom_smooth(method = "lm",)
+```
+
+---
+## Ejercicio 2
+
+¿Podemos mejorar el desempeño del modelo agregando más variables?
+
+Modifica la fórmula de lm agregando las variables
+* largo_pico_mm
+* alto_pico_mm
+* largo_aleta_mm
+
+¿Mejora el error (RMSE) ?
+
+`r countdown(minutes = 1, seconds = 00)`
+---
+## Ejercicio 2 - respuesta
+
+```{r todojunto2, cache=TRUE}
+set.seed(100) # Importante
+p_split  <- initial_split(dataset, prop=0.75) 
+p_train  <- training(p_split)
+p_test   <- testing(p_split)
+
+lm_fit_all      <- lm_spec %>% 
+                fit(masa_corporal_g ~ largo_pico_mm +alto_pico_mm+largo_aleta_mm,
+                    data = p_train)
+
+peso_pred_all  <- lm_fit_all %>% 
+                predict(new_data = p_test) %>% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(peso_pred_all, truth = verdadero,estimate=.pred)
+```
+---
+### Modelo lm para varias variables de entrada
+```{r}
+lm_fit_all
+```
+
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+### Random Forest
+
+```{r rf_spec, cache=TRUE}
+rf_spec <- rand_forest(mode = "regression") %>%  #<-
+  set_engine("ranger")
+rf_spec
+
 ```
 
 ---
@@ -164,54 +338,116 @@ background-size: cover
 ### Random Forest
 
 ```{r}
-rf_spec <- rand_forest(mode = "regression") %>%
-  set_engine("ranger")
-rf_spec
-
-```
-
----
-
-### Random Forest
-
-```{r}
 set.seed(123)
 rf_fit <- rf_spec %>%
-  fit(flipper_length_mm ~ body_mass_g ,
-    data = p_train
-  )
+  fit(masa_corporal_g ~ largo_pico_mm +alto_pico_mm + largo_aleta_mm,
+    data = p_train)
 
 rf_fit
 
 ```
+
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+## Random forest
+
+```{r}
+rf_fit %>% 
+                predict(new_data = p_test) %>% 
+                mutate(verdadero = p_test$masa_corporal_g)
+```
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+## Random forest
+
+```{r}
+peso_pred_rf <- rf_fit %>% 
+                predict(new_data = p_test) %>% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(peso_pred_rf, truth = verdadero,estimate=.pred)
+```
+
+---
+background-image: url(img/rf-fondo.png)
+background-size: cover
+
+```{r todojunto3}
+peso_pred_rf  <- rf_fit %>% 
+                predict(new_data = p_test) %>% 
+                mutate(verdadero = p_test$masa_corporal_g)
+rmse(peso_pred_rf, truth = verdadero,estimate=.pred)
+```
+---
+## Comparando desempeño en el conjunto de entrenamiento
+
+```{r}
+results_train <- lm_fit_all %>%
+  predict(new_data = p_train) %>%
+  mutate(
+    verdadero = p_train$masa_corporal_g,
+    model = "lm"
+  ) %>%
+  bind_rows(rf_fit %>%
+    predict(new_data = p_train) %>%
+    mutate(
+      verdadero = p_train$masa_corporal_g,
+      model = "rf"
+    ))
+```
+
+---
+## Resultados conjunto entrenamiento 
+
+```{r}
+results_train %>%
+  group_by(model) %>%
+  rmse(truth = verdadero, estimate = .pred)
+```
+
 ---
 background-image: url(img/dt-fondo.png)
 background-size: cover
 
-## Testing set  `r emo::ji("crystal_ball")`
-
-__Esta es la etapa conocida como predicción__ 
-
-
-
-
----
-
-background-image: url(img/dt-fondo.png)
-background-size: cover
-
-
-### Ejercicio 1 
+### Ejercicio 3 
 
 .bg-near-white.b--purple.ba.bw2.br3.shadow-5.ph4.mt5[
-#### Teniendo en cuenta el código de la página 6 realice tuneo de los siguientes hiperparámetros
-
-* min_n
-* cost_complexity
+#### Compare el rendimiento de los modelos en el conjunto de datos de testeo.
+Copie y pegue el código anterior. 
+Modifique lo necesario.
 ]
 
-`r countdown(minutes = 5, seconds = 00)`
-
+`r countdown(minutes = 1, seconds = 00)`
 
 ---
 
+## Comparando modelos en el testeo
+
+```{r}
+results_test <- lm_fit_all %>%
+  predict(new_data = p_test) %>%
+  mutate(
+    verdadero = p_test$masa_corporal_g,
+    model = "lm"
+  ) %>%
+  bind_rows(rf_fit %>%
+    predict(new_data = p_test) %>%
+    mutate(
+      verdadero = p_test$masa_corporal_g,
+      model = "rf"
+    ))
+```
+
+```{r}
+results_test %>%
+  group_by(model) %>%
+  rmse(truth = verdadero, estimate = .pred)
+```
+---
+### FIN apartado :-) 
+
+* Muchas gracias
+* Recreo
